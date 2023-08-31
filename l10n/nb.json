@@ -1,0 +1,5 @@
+{ "translations": {
+    "Transcribe" : "Transkribere",
+    "Failed to get transcription/translation" : "Kunne ikke hente transkripsjon/oversettelse"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

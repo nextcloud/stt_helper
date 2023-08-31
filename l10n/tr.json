@@ -1,0 +1,5 @@
+{ "translations": {
+    "Transcribe" : "Dönüştür",
+    "Failed to get transcription/translation" : "Dönüştürülemedi/çevrilemedi"
+},"pluralForm" :"nplurals=2; plural=(n > 1);"
+}

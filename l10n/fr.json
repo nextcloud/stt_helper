@@ -1,0 +1,5 @@
+{ "translations": {
+    "Transcribe" : "Transcrire",
+    "Failed to get transcription/translation" : "Impossible de récupérer la traduction/transcription"
+},"pluralForm" :"nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
+}
