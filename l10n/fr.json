@@ -3,6 +3,7 @@
     "Some internal error occurred. Check logs to find out more." : "Une erreur interne est survenue. Consultez les journaux pour en savoir plus.",
     "Audio file not found." : "Fichier audio introuvable.",
     "No permission to create recording file/directory, check log files and your installation." : "Aucune permission pour créer un fichier/répertoire d'enregistrement, vérifier les fichiers journaux et votre installation.",
+    "Speech to Text" : "Synthèse vocale",
     "Record Audio" : "Enregistrement audio",
     "Choose Audio File" : "Choisissez un fichier audio",
     "No audio file selected (Only MP3 format is supported)" : "Aucun fichier audio sélectionné (seul le format MP3 est pris en charge)",
