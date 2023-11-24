@@ -29,9 +29,10 @@ use OCP\EventDispatcher\Event;
 use OCP\EventDispatcher\IEventListener;
 use OCP\Util;
 
+/**
+ * @template-implements IEventListener<Event>
+ */
 class SttReferenceListener implements IEventListener {
-
-	public function __construct() { }
 
 	public function handle(Event $event): void {
 		if (!$event instanceof RenderReferenceEvent) {

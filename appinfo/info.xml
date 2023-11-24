@@ -9,14 +9,14 @@
     <author>Anupam Kumar</author>
     <namespace>Stt</namespace>
     <documentation>
-        <developer>https://github.com/kyteinsky/stt_helper</developer>
+        <developer>https://github.com/nextcloud/stt_helper</developer>
     </documentation>
     <category>integration</category>
     <category>dashboard</category>
-    <website>https://github.com/kyteinsky/stt_helper</website>
-    <bugs>https://github.com/kyteinsky/stt_helper/issues</bugs>
-    <screenshot>https://github.com/kyteinsky/stt_helper/raw/main/img/screenshot1.jpg</screenshot>
-    <screenshot>https://github.com/kyteinsky/stt_helper/raw/main/img/screenshot2.jpg</screenshot>
+    <website>https://github.com/nextcloud/stt_helper</website>
+    <bugs>https://github.com/nextcloud/stt_helper/issues</bugs>
+    <screenshot>https://github.com/nextcloud/stt_helper/raw/main/img/screenshot1.jpg</screenshot>
+    <screenshot>https://github.com/nextcloud/stt_helper/raw/main/img/screenshot2.jpg</screenshot>
     <dependencies>
         <nextcloud min-version="26" max-version="28"/>
     </dependencies>

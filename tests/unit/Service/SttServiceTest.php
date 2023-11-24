@@ -2,12 +2,11 @@
 
 namespace OCA\Stt\Tests;
 
+use OCA\Stt\AppInfo\Application;
 use OCA\Stt\Service\SttService;
 use OCP\Files\IRootFolder;
 use OCP\SpeechToText\ISpeechToTextManager;
 use Test\TestCase;
-
-use OCA\Stt\AppInfo\Application;
 
 class SttServiceTest extends TestCase {
 

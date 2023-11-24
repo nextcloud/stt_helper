@@ -22,25 +22,27 @@
 
 namespace OCA\Stt\Reference;
 
-use OC\Collaboration\Reference\ReferenceManager;
 use OCA\Stt\AppInfo\Application;
 use OCP\Collaboration\Reference\ADiscoverableReferenceProvider;
 use OCP\Collaboration\Reference\IReference;
+use OCP\Collaboration\Reference\IReferenceManager;
 use OCP\IL10N;
 use OCP\IURLGenerator;
 
-class SttReferenceProvider extends ADiscoverableReferenceProvider  {
+class SttReferenceProvider extends ADiscoverableReferenceProvider {
 
-	public function __construct(private IL10N $l10n,
-								private IURLGenerator $urlGenerator,
-								private ReferenceManager $referenceManager,
-								private ?string $userId) {
+	public function __construct(
+		private IL10N $l10n,
+		private IURLGenerator $urlGenerator,
+		private IReferenceManager $referenceManager,
+		private ?string $userId
+	) {
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getId(): string	{
+	public function getId(): string {
 		return 'stt-helper';
 	}
 
@@ -54,7 +56,7 @@ class SttReferenceProvider extends ADiscoverableReferenceProvider  {
 	/**
 	 * @inheritDoc
 	 */
-	public function getOrder(): int	{
+	public function getOrder(): int {
 		return 10;
 	}
 
