@@ -23,19 +23,18 @@
 namespace OCA\Stt\Controller;
 
 use InvalidArgumentException;
+use OCA\Stt\AppInfo\Application;
+use OCA\Stt\Service\SttService;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\Attribute\NoAdminRequired;
 use OCP\AppFramework\Http\DataResponse;
+use OCP\Files\NotFoundException;
 use OCP\Files\NotPermittedException;
 use OCP\IL10N;
 use OCP\IRequest;
 use OCP\PreConditionNotMetException;
 use Psr\Log\LoggerInterface;
-
-use OCA\Stt\AppInfo\Application;
-use OCA\Stt\Service\SttService;
-use OCP\Files\NotFoundException;
 
 class SttController extends Controller {
 
@@ -145,4 +144,3 @@ class SttController extends Controller {
 		}
 	}
 }
-

@@ -22,21 +22,21 @@
 
 namespace OCA\Stt\Service;
 
+use InvalidArgumentException;
 use OCP\Files\File;
 use OCP\Files\IRootFolder;
 use OCP\Files\NotFoundException;
 use OCP\Files\NotPermittedException;
+use OCP\PreConditionNotMetException;
 use OCP\SpeechToText\ISpeechToTextManager;
-
-use OCA\Stt\AppInfo\Application;
-use OCA\Stt\Service\FileService;
 
 class SttService {
 
 	public function __construct(
 		private ISpeechToTextManager $manager,
 		private IRootFolder $rootFolder,
-	) {}
+	) {
+	}
 
 	private function getFileObject(string $userId, string $audioContent): File {
 		$randomId = bin2hex(random_bytes(6));
@@ -59,7 +59,7 @@ class SttService {
 	public function transcribeFile(string $path, ?string $userId): string {
 		$userFolder = $this->rootFolder->getUserFolder($userId);
 		$audioFile = $userFolder->get($path);
-		return $this->manager->transcribeFile($audioFile, $userId, Application::APP_ID);
+		return $this->manager->transcribeFile($audioFile);
 	}
 
 	/**
@@ -72,6 +72,6 @@ class SttService {
 	 */
 	public function transcribeAudio(string $audioContent, ?string $userId): string {
 		$audioFile = $this->getFileObject($userId ?? '', $audioContent);
-		return $this->manager->transcribeFile($audioFile, $userId, Application::APP_ID);
+		return $this->manager->transcribeFile($audioFile);
 	}
 }

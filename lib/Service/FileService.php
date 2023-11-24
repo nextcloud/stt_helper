@@ -28,7 +28,7 @@ use OCP\Files\File;
 class FileService extends Node implements File {
 
 	private string $fileid;
-	private string $content;
+	private mixed $content;
 	private string $hash;
 
 	public function __construct(string $fileid, string $audioContent) {
@@ -44,7 +44,7 @@ class FileService extends Node implements File {
 	}
 
 	/**
-	 * @param string $data
+	 * @param string|resource $data
 	 */
 	public function putContent($data) {
 		$this->content = $data;
