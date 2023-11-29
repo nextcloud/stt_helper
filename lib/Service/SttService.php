@@ -70,7 +70,7 @@ class SttService {
 		$notification->setApp(Application::APP_ID)
 			->setUser($userId)
 			->setDateTime(new \DateTime())
-			->setObject('transcript', $id)
+			->setObject('transcript', strval($id))
 			->setSubject($subject, $params)
 			->setLink($url)
 		;
@@ -117,7 +117,7 @@ class SttService {
 
 	/**
 	 * @param string $audioContent
-	 * @param string $schedule
+	 * @param bool $schedule
 	 * @param string|null $userId
 	 * @return string The transcript
 	 * @throws NotPermittedException

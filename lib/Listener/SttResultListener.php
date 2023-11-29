@@ -22,6 +22,7 @@
 
 namespace OCA\Stt\Listener;
 
+use DateTime;
 use OCA\Stt\AppInfo\Application;
 use OCA\Stt\Db\Transcript;
 use OCA\Stt\Db\TranscriptMapper;
@@ -33,6 +34,9 @@ use OCP\SpeechToText\Events\TranscriptionFailedEvent;
 use OCP\SpeechToText\Events\TranscriptionSuccessfulEvent;
 use Psr\Log\LoggerInterface;
 
+/**
+ * @template-implements IEventListener<Event>
+ */
 class SttResultListener implements IEventListener {
 	public function __construct(
 		private SttService $sttService,
@@ -55,7 +59,7 @@ class SttResultListener implements IEventListener {
 				$transcriptEntity->setUserId($userId ?? '');
 				$transcriptEntity->setTranscript($transcript);
 				// never seen transcripts should also be deleted in the cleanup job
-				$transcriptEntity->setLastAccessed(new \DateTime());
+				$transcriptEntity->setLastAccessed(new DateTime());
 				$transcriptEntity = $this->transcriptMapper->insert($transcriptEntity);
 
 				$id = $transcriptEntity->getId();

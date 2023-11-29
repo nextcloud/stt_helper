@@ -38,8 +38,8 @@ use OCP\DB\Types;
  * @method void setUserId(string $userId)
  * @method string getTranscript()
  * @method void setTranscript(string $transcript)
- * @method DateTime getLastAccessed()
- * @method void setLastAccessed(DateTime $lastAccessed)
+ * @method \DateTime getLastAccessed()
+ * @method void setLastAccessed(\DateTime $lastAccessed)
  */
 class Transcript extends Entity {
 
