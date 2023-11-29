@@ -15,7 +15,9 @@ webpackConfig.stats = {
 
 const appId = 'stt_helper'
 webpackConfig.entry = {
+	main: { import: path.join(__dirname, 'src', 'main.js'), filename: appId + '-main.js' },
 	reference: { import: path.join(__dirname, 'src', 'reference.js'), filename: appId + '-reference.js' },
+	resultPage: { import: path.join(__dirname, 'src', 'resultPage.js'), filename: appId + '-resultPage.js' },
 }
 
 webpackConfig.plugins.push(

@@ -17,6 +17,9 @@
     <bugs>https://github.com/nextcloud/stt_helper/issues</bugs>
     <screenshot>https://github.com/nextcloud/stt_helper/raw/main/img/screenshot1.jpg</screenshot>
     <screenshot>https://github.com/nextcloud/stt_helper/raw/main/img/screenshot2.jpg</screenshot>
+    <background-jobs>
+		<job>OCA\Stt\Cron\CleanupTranscriptions</job>
+	</background-jobs>
     <dependencies>
         <nextcloud min-version="26" max-version="28"/>
     </dependencies>

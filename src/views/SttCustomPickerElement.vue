@@ -4,6 +4,7 @@
 	<div class="picker-content-wrapper">
 		<div class="picker-content">
 			<h2>
+				<SttIcon :size="24" class="icon" />
 				{{ t('stt_helper', 'Speech to Text') }}
 			</h2>
 			<div class="form-wrapper">
@@ -42,7 +43,7 @@
 			<div v-else>
 				<div class="line">
 					{{ audioFilePath == null
-						? t('stt_helper', 'No audio file selected (Only MP3 format is supported)')
+						? t('stt_helper', 'No audio file selected')
 						: t('stt_helper', 'Selected Audio File:') + " " + audioFilePath.split('/').pop() }}
 				</div>
 				<div class="line justified">
@@ -55,9 +56,18 @@
 			</div>
 			<div class="footer">
 				<NcButton
+					type="secondary"
+					:disabled="loading || (audioData == null && audioFilePath == null)"
+					@click="onInputEnter(true)">
+					<template #icon>
+						<ArrowRightIcon />
+					</template>
+					{{ t('stt_helper', 'Schedule') }}
+				</NcButton>
+				<NcButton
 					type="primary"
 					:disabled="loading || (audioData == null && audioFilePath == null)"
-					@click="onInputEnter">
+					@click="onInputEnter(false)">
 					<template #icon>
 						<NcLoadingIcon v-if="loading"
 							:size="20" />
@@ -73,6 +83,8 @@
 <script>
 import ArrowRightIcon from 'vue-material-design-icons/ArrowRight.vue'
 
+import SttIcon from '../components/icons/SttIcon.vue'
+
 import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 import NcLoadingIcon from '@nextcloud/vue/dist/Components/NcLoadingIcon.js'
 import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
@@ -80,12 +92,24 @@ import VueAudioRecorder from 'vue2-audio-recorder'
 
 import axios from '@nextcloud/axios'
 import { generateUrl } from '@nextcloud/router'
-import { getFilePickerBuilder, showError } from '@nextcloud/dialogs'
+import { getFilePickerBuilder, showError, showSuccess } from '@nextcloud/dialogs'
 
 import Vue from 'vue'
 Vue.use(VueAudioRecorder)
 
-const VALID_MIME_TYPES = ['audio/mpeg']
+const VALID_MIME_TYPES = [
+	'audio/mpeg',
+	'audio/mp4',
+	'audio/ogg',
+	'audio/wav',
+	'audio/x-wav',
+	'audio/webm',
+	'audio/opus',
+	'audio/flac',
+	'audio/vorbis',
+	'audio/m4b',
+]
+
 const picker = getFilePickerBuilder(t('stt_helper', 'Choose Audio File'))
 	.setMimeTypeFilter(VALID_MIME_TYPES)
 	.setModal(true)
@@ -98,10 +122,11 @@ export default {
 	name: 'SttCustomPickerElement',
 
 	components: {
-		NcButton,
-		NcLoadingIcon,
-		NcCheckboxRadioSwitch,
 		ArrowRightIcon,
+		NcButton,
+		NcCheckboxRadioSwitch,
+		NcLoadingIcon,
+		SttIcon,
 	},
 
 	props: {
@@ -153,14 +178,14 @@ export default {
 			}
 		},
 
-		async onInputEnter() {
+		async onInputEnter(schedule) {
 			if (this.mode === 'record') {
 				const url = generateUrl('/apps/stt_helper/transcribeAudio')
-				const params = { audioBase64: this.audioData }
+				const params = { audioBase64: this.audioData, schedule: !!schedule }
 				await this.apiRequest(url, params)
 			} else {
 				const url = generateUrl('/apps/stt_helper/transcribeFile')
-				const params = { path: this.audioFilePath }
+				const params = { path: this.audioFilePath, schedule: !!schedule }
 				await this.apiRequest(url, params)
 			}
 
@@ -171,19 +196,22 @@ export default {
 			try {
 				this.loading = true
 				const response = await axios.post(url, params)
-				this.$emit('submit', response.data)
 				this.loading = false
+
+				if (params.schedule) {
+					showSuccess(t('stt_helper', 'Successfully scheduled transcription'))
+					return this.$emit('submit', '')
+				}
+
+				this.$emit('submit', response.data?.trim() ?? '')
 			} catch (error) {
 				this.loading = false
 				console.error('API error:', error)
 				showError(
-					t('stt_helper', 'Failed to get transcription/translation')
-					+ ': ' + (
-						error.response?.data
+					t('stt_helper', 'Failed to schedule/get transcription')
+					+ (': ' + error.response?.data
 						|| error.message
-						|| t('stt_helper', 'Unknown API error')
-					)
-				)
+						|| t('stt_helper', 'Unknown API error')))
 			}
 		},
 	},
@@ -205,6 +233,11 @@ export default {
 	h2 {
 		display: flex;
 		align-items: center;
+		gap: 8px;
+
+		.icon {
+			color: var(--color-primary);
+		}
 	}
 
 	.form-wrapper {
@@ -232,6 +265,7 @@ export default {
 		display: flex;
 		align-items: center;
 		justify-content: end;
+		gap: 8px;
 		margin-top: 8px;
 		width: 100%;
 	}

@@ -22,14 +22,19 @@
 
 namespace OCA\Stt\AppInfo;
 
+use OCA\Stt\Listener\BeforeTemplateRenderedListener;
 use OCA\Stt\Listener\SttReferenceListener;
+use OCA\Stt\Listener\SttResultListener;
+use OCA\Stt\Notification\Notifier;
 use OCA\Stt\Reference\SttReferenceProvider;
-
 use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
+use OCP\AppFramework\Http\Events\BeforeTemplateRenderedEvent;
 use OCP\Collaboration\Reference\RenderReferenceEvent;
+use OCP\SpeechToText\Events\TranscriptionFailedEvent;
+use OCP\SpeechToText\Events\TranscriptionSuccessfulEvent;
 
 class Application extends App implements IBootstrap {
 
@@ -40,7 +45,11 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function register(IRegistrationContext $context): void {
+		$context->registerEventListener(BeforeTemplateRenderedEvent::class, BeforeTemplateRenderedListener::class);
 		$context->registerEventListener(RenderReferenceEvent::class, SttReferenceListener::class);
+		$context->registerEventListener(TranscriptionSuccessfulEvent::class, SttResultListener::class);
+		$context->registerEventListener(TranscriptionFailedEvent::class, SttResultListener::class);
+		$context->registerNotifierService(Notifier::class);
 		$context->registerReferenceProvider(SttReferenceProvider::class);
 	}
 
