@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * @copyright Copyright (c) 2023 Anupam Kumar <kyteinsky@gmail.com>
  *
@@ -18,13 +21,25 @@
  *
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
  */
 
-return [
-	'routes' => [
-		['name' => 'stt#getResultPage', 'url' => '/resultPage', 'verb' => 'GET'],
-		['name' => 'stt#getTranscript', 'url' => '/transcript', 'verb' => 'GET'],
-		['name' => 'stt#transcribeAudio', 'url' => '/transcribeAudio', 'verb' => 'POST'],
-		['name' => 'stt#transcribeFile', 'url' => '/transcribeFile', 'verb' => 'POST'],
-	],
-];
+namespace OCA\Stt\Cron;
+
+use OCA\Stt\Db\TranscriptMapper;
+use OCP\AppFramework\Utility\ITimeFactory;
+use OCP\BackgroundJob\TimedJob;
+
+class CleanupTranscriptions extends TimedJob {
+	public function __construct(
+		ITimeFactory $time,
+		private TranscriptMapper $transcriptMapper,
+	) {
+		parent::__construct($time);
+		$this->setInterval(60 * 60 * 24); // 24 hours
+	}
+
+	protected function run($argument) {
+		$this->transcriptMapper->cleanupTranscriptions();
+	}
+}
