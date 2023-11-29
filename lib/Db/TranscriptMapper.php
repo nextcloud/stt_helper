@@ -28,11 +28,17 @@ declare(strict_types=1);
 namespace OCA\Stt\Db;
 
 use DateTime;
+use Exception;
+use OCP\AppFramework\Db\DoesNotExistException;
+use OCP\AppFramework\Db\MultipleObjectsReturnedException;
 use OCP\AppFramework\Db\QBMapper;
 use OCP\DB\QueryBuilder\IQueryBuilder;
 use OCP\IDBConnection;
 use Psr\Log\LoggerInterface;
 
+/**
+ * @template-extends QBMapper<Transcript>
+ */
 class TranscriptMapper extends QBMapper {
 
 	public function __construct(IDBConnection $db, private LoggerInterface $logger) {

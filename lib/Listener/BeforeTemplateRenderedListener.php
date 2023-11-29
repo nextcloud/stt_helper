@@ -13,6 +13,9 @@ use OCP\IUser;
 use OCP\IUserSession;
 use OCP\Util;
 
+/**
+ * @template-implements IEventListener<Event>
+ */
 class BeforeTemplateRenderedListener implements IEventListener {
 
 	public function __construct(

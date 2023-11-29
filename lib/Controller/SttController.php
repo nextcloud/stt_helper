@@ -80,7 +80,7 @@ class SttController extends Controller {
 				'status' => 'failure',
 				'message' => $e->getMessage(),
 			];
-			$response->setStatus($e->getCode());
+			$response->setStatus(intval($e->getCode()));
 			$response->throttle(['userId' => $this->userId, 'id' => $id]);
 		}
 		$this->initialState->provideInitialState('result', $initData);
@@ -89,14 +89,14 @@ class SttController extends Controller {
 
 	/**
 	 * @param int $id Transcript ID
-	 * @return void
+	 * @return DataResponse
 	 */
 	#[NoAdminRequired]
 	public function getTranscript(int $id): DataResponse {
 		try {
 			return new DataResponse($this->internalGetTranscript($id));
 		} catch (Exception $e) {
-			return new DataResponse($e->getMessage(), $e->getCode());
+			return new DataResponse($e->getMessage(), intval($e->getCode()));
 		}
 	}
 
@@ -148,7 +148,7 @@ class SttController extends Controller {
 			return new DataResponse('Invalid audio data received', Http::STATUS_BAD_REQUEST);
 		}
 
-		$audioContent = base64_decode(str_replace('data:audio/mp3;base64,', '', $audioBase64));
+		$audioContent = base64_decode(str_replace('data:audio/mp3;base64,', '', $audioBase64), true);
 		if ($audioContent === false) {
 			return new DataResponse('Invalid audio data received', Http::STATUS_BAD_REQUEST);
 		}
