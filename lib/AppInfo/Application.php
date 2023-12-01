@@ -39,6 +39,7 @@ use OCP\SpeechToText\Events\TranscriptionSuccessfulEvent;
 class Application extends App implements IBootstrap {
 
 	public const APP_ID = 'stt_helper';
+	public const REC_FOLDER = 'STT Recordings';
 
 	public function __construct(array $urlParams = []) {
 		parent::__construct(self::APP_ID, $urlParams);
