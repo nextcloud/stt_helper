@@ -22,12 +22,15 @@
 
 namespace OCA\Stt\Service;
 
+use DateTime;
 use InvalidArgumentException;
 use OCA\Stt\AppInfo\Application;
 use OCP\Files\File;
+use OCP\Files\Folder;
 use OCP\Files\IRootFolder;
 use OCP\Files\NotFoundException;
 use OCP\Files\NotPermittedException;
+use OCP\IConfig;
 use OCP\IURLGenerator;
 use OCP\Notification\IManager as INotifyManager;
 use OCP\PreConditionNotMetException;
@@ -43,6 +46,7 @@ class SttService {
 		private INotifyManager $notificationManager,
 		private IURLGenerator $urlGenerator,
 		private LoggerInterface $logger,
+		private IConfig $config,
 	) {
 	}
 
@@ -78,15 +82,6 @@ class SttService {
 		$this->notificationManager->notify($notification);
 	}
 
-	private function getFileObject(string $userId, string $audioContent): File {
-		$randomId = bin2hex(random_bytes(6));
-		$fileid = $userId . '___' . $randomId;
-
-		$fileObj = new FileService($fileid, $audioContent);
-
-		return $fileObj;
-	}
-
 	/**
 	 * @param string $path
 	 * @param bool $schedule
@@ -116,7 +111,7 @@ class SttService {
 	}
 
 	/**
-	 * @param string $audioContent
+	 * @param string $tempFileLocation
 	 * @param bool $schedule
 	 * @param string|null $userId
 	 * @return string The transcript
@@ -125,8 +120,12 @@ class SttService {
 	 * @throws InvalidArgumentException
 	 * @throws RuntimeException
 	 */
-	public function transcribeAudio(string $audioContent, bool $schedule, ?string $userId): string {
-		$audioFile = $this->getFileObject($userId ?? '', $audioContent);
+	public function transcribeAudio(string $tempFileLocation, bool $schedule, ?string $userId): string {
+		if ($userId === null) {
+			throw new InvalidArgumentException('userId must not be null');
+		}
+
+		$audioFile = $this->getFileObject($userId, $tempFileLocation);
 
 		if ($schedule) {
 			$this->manager->scheduleFileTranscription($audioFile, $userId, Application::APP_ID);
@@ -134,5 +133,67 @@ class SttService {
 		}
 
 		return $this->manager->transcribeFile($audioFile);
+	}
+
+	/**
+	 * @param string $userId
+	 * @param string $tempFileLocation
+	 * @return File
+	 * @throws NotPermittedException
+	 * @throws RuntimeException
+	 */
+	private function getFileObject(string $userId, string $tempFileLocation): File {
+		$userFolder = $this->rootFolder->getUserFolder($userId);
+
+		$sttFolderName = $this->config->getAppValue(Application::APP_ID, 'stt_folder', '(not set)');
+		if ($sttFolderName === '(not set)') {
+			$sttFolderName = Application::REC_FOLDER;
+
+			if ($userFolder->nodeExists($sttFolderName)) {
+				$sttFolder = $this->getRandomNamedFolder($userId);
+				$sttFolderName = $sttFolder->getName();
+			} else {
+				$sttFolder = $userFolder->newFolder($sttFolderName);
+			}
+			$this->config->setAppValue(Application::APP_ID, 'stt_folder', $sttFolderName);
+		} else {
+			$sttFolder = $userFolder->get($sttFolderName);
+			if (!$sttFolder instanceof Folder) {
+				// the folder created by this app was tampered with
+				// create a new one
+				$sttFolder = $this->getRandomNamedFolder($userId);
+				$sttFolderName = $sttFolder->getName();
+				$this->config->setAppValue(Application::APP_ID, 'stt_folder', $sttFolderName);
+			}
+		}
+
+		$filename = (new DateTime())->format('d-M-Y-Hisu') . '.mp3';
+
+		$audioData = file_get_contents($tempFileLocation);
+		$audioFile = $sttFolder->newFile($filename, $audioData);
+
+		return $audioFile;
+	}
+
+	/**
+	 * @param string $userId
+	 * @param integer $try
+	 * @return Folder
+	 * @throws RuntimeException
+	 */
+	private function getRandomNamedFolder(string $userId, int $try = 3): Folder {
+		$userFolder = $this->rootFolder->getUserFolder($userId);
+		$randomId = bin2hex(random_bytes(4));
+		$sttFolderPath = Application::REC_FOLDER . ' ' . $randomId;
+
+		if ($userFolder->nodeExists($sttFolderPath)) {
+			if ($try === 0) {
+				// this should never happen in a sane world
+				throw new RuntimeException('Could not create a random folder');
+			}
+			return $this->getRandomNamedFolder($userId, $try - 1);
+		}
+
+		return $userFolder->newFolder($sttFolderPath);
 	}
 }

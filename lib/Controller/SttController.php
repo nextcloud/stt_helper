@@ -32,9 +32,10 @@ use OCP\AppFramework\Controller;
 use OCP\AppFramework\Db\DoesNotExistException;
 use OCP\AppFramework\Db\MultipleObjectsReturnedException;
 use OCP\AppFramework\Http;
-use OCP\AppFramework\Http\Attribute\BruteForceProtection;
+use OCP\AppFramework\Http\Attribute\AnonRateLimit;
 use OCP\AppFramework\Http\Attribute\NoAdminRequired;
 use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
+use OCP\AppFramework\Http\Attribute\UserRateLimit;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Services\IInitialState;
@@ -67,7 +68,8 @@ class SttController extends Controller {
 	 */
 	#[NoAdminRequired]
 	#[NoCSRFRequired]
-	#[BruteForceProtection(action: 'resultPage')]
+	#[UserRateLimit(limit: 10, period: 60)]
+	#[AnonRateLimit(limit: 2, period: 60)]
 	public function getResultPage(int $id): TemplateResponse {
 		$response = new TemplateResponse(Application::APP_ID, 'resultPage');
 		try {
@@ -81,7 +83,6 @@ class SttController extends Controller {
 				'message' => $e->getMessage(),
 			];
 			$response->setStatus(intval($e->getCode()));
-			$response->throttle(['userId' => $this->userId, 'id' => $id]);
 		}
 		$this->initialState->provideInitialState('result', $initData);
 		return $response;
@@ -139,22 +140,27 @@ class SttController extends Controller {
 	}
 
 	/**
-	 * @param string $audioBase64
 	 * @return DataResponse
 	 */
 	#[NoAdminRequired]
-	public function transcribeAudio(string $audioBase64, bool $schedule): DataResponse {
-		if ($audioBase64 === '') {
+	public function transcribeAudio(): DataResponse {
+		$audioData = $this->request->getUploadedFile('audioData');
+		$schedule = $this->request->getParam('schedule', 'false') === 'true';
+
+		if ($audioData['error'] !== 0) {
+			return new DataResponse('Error in audio file upload: ' . $audioData['error'], Http::STATUS_BAD_REQUEST);
+		}
+
+		if (empty($audioData)) {
 			return new DataResponse('Invalid audio data received', Http::STATUS_BAD_REQUEST);
 		}
 
-		$audioContent = base64_decode(str_replace('data:audio/mp3;base64,', '', $audioBase64), true);
-		if ($audioContent === false) {
-			return new DataResponse('Invalid audio data received', Http::STATUS_BAD_REQUEST);
+		if ($audioData['type'] !== 'audio/mp3' && $audioData['type'] !== 'audio/mpeg') {
+			return new DataResponse('Audio file must be in MP3 format', Http::STATUS_BAD_REQUEST);
 		}
 
 		try {
-			$transcription = $this->service->transcribeAudio($audioContent, $schedule, $this->userId);
+			$transcription = $this->service->transcribeAudio($audioData['tmp_name'], $schedule, $this->userId);
 			return new DataResponse($transcription);
 		} catch (RuntimeException $e) {
 			$this->logger->error(
@@ -182,6 +188,7 @@ class SttController extends Controller {
 
 	/**
 	 * @param string $path Nextcloud file path
+	 * @param bool $schedule
 	 * @return DataResponse
 	 */
 	#[NoAdminRequired]

@@ -36,8 +36,8 @@
 			<audio-recorder v-if="mode === 'record'"
 				class="recorder"
 				:attempts="1"
-				:time="120"
-				:show-download-button="true"
+				:time="300"
+				:show-download-button="false"
 				:show-upload-button="false"
 				:after-recording="onRecordEnd" />
 			<div v-else>
@@ -160,18 +160,8 @@ export default {
 		},
 
 		async onRecordEnd(e) {
-			const readBlob = (blob) => {
-				const reader = new FileReader()
-				return new Promise((resolve) => {
-					reader.addEventListener('load', () => {
-						resolve(reader.result)
-					})
-					reader.readAsDataURL(blob)
-				})
-			}
-
 			try {
-				this.audioData = await readBlob(e.blob)
+				this.audioData = e.blob
 			} catch (error) {
 				console.error('Recording error:', error)
 				this.audioData = null
@@ -181,24 +171,26 @@ export default {
 		async onInputEnter(schedule) {
 			if (this.mode === 'record') {
 				const url = generateUrl('/apps/stt_helper/transcribeAudio')
-				const params = { audioBase64: this.audioData, schedule: !!schedule }
-				await this.apiRequest(url, params)
+				const formData = new FormData()
+				formData.append('audioData', this.audioData)
+				formData.append('schedule', !!schedule)
+				await this.apiRequest(url, formData, !!schedule)
 			} else {
 				const url = generateUrl('/apps/stt_helper/transcribeFile')
 				const params = { path: this.audioFilePath, schedule: !!schedule }
-				await this.apiRequest(url, params)
+				await this.apiRequest(url, params, !!schedule)
 			}
 
 			this.resetAudioState()
 		},
 
-		async apiRequest(url, params) {
+		async apiRequest(url, data, schedule) {
 			try {
 				this.loading = true
-				const response = await axios.post(url, params)
+				const response = await axios.post(url, data)
 				this.loading = false
 
-				if (params.schedule) {
+				if (schedule) {
 					showSuccess(t('stt_helper', 'Successfully scheduled transcription'))
 					return this.$emit('submit', '')
 				}
@@ -207,6 +199,7 @@ export default {
 			} catch (error) {
 				this.loading = false
 				console.error('API error:', error)
+				this.resetAudioState()
 				showError(
 					t('stt_helper', 'Failed to schedule/get transcription')
 					+ (': ' + error.response?.data

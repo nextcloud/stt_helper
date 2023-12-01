@@ -21,6 +21,6 @@
 		<job>OCA\Stt\Cron\CleanupTranscriptions</job>
 	</background-jobs>
     <dependencies>
-        <nextcloud min-version="26" max-version="28"/>
+        <nextcloud min-version="27" max-version="28"/>
     </dependencies>
 </info>

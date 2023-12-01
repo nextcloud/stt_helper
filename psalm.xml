@@ -26,7 +26,6 @@
 	<issueHandlers>
 		<UndefinedClass>
 			<errorLevel type="suppress">
-				<referencedClass name="OC\Files\Node\Node" />
 				<referencedClass name="OC\Hooks\Emitter" />
 			</errorLevel>
 		</UndefinedClass>
