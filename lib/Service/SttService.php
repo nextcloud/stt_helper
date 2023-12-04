@@ -54,12 +54,17 @@ class SttService {
 	 * Sends a notification to the user for successful or failed transcription
 	 *
 	 * @param int $id
-	 * @param string $userId
+	 * @param ?string $userId
 	 * @param boolean $success
 	 * @param string $message The transcript or error message
 	 * @return void
 	 */
-	public function sendNotification(int $id, string $userId, bool $success, string $message) {
+	public function sendNotification(int $id, ?string $userId, bool $success, string $message) {
+		if (is_null($userId)) {
+			$this->logger->warning('userId is null, skipping sending a notification.');
+			return;
+		}
+
 		$notification = $this->notificationManager->createNotification();
 
 		$subject = $success ? 'success' : 'failure';
@@ -150,7 +155,7 @@ class SttService {
 			$sttFolderName = Application::REC_FOLDER;
 
 			if ($userFolder->nodeExists($sttFolderName)) {
-				$sttFolder = $this->getRandomNamedFolder($userId);
+				$sttFolder = $this->getUniqueNamedFolder($userId);
 				$sttFolderName = $sttFolder->getName();
 			} else {
 				$sttFolder = $userFolder->newFolder($sttFolderName);
@@ -161,16 +166,14 @@ class SttService {
 			if (!$sttFolder instanceof Folder) {
 				// the folder created by this app was tampered with
 				// create a new one
-				$sttFolder = $this->getRandomNamedFolder($userId);
+				$sttFolder = $this->getUniqueNamedFolder($userId);
 				$sttFolderName = $sttFolder->getName();
 				$this->config->setAppValue(Application::APP_ID, 'stt_folder', $sttFolderName);
 			}
 		}
 
 		$filename = (new DateTime())->format('d-M-Y-Hisu') . '.mp3';
-
-		$audioData = file_get_contents($tempFileLocation);
-		$audioFile = $sttFolder->newFile($filename, $audioData);
+		$audioFile = $sttFolder->newFile($filename, fopen($tempFileLocation, 'rb'));
 
 		return $audioFile;
 	}
@@ -180,18 +183,18 @@ class SttService {
 	 * @param integer $try
 	 * @return Folder
 	 * @throws RuntimeException
+	 * @throws NotPermittedException
 	 */
-	private function getRandomNamedFolder(string $userId, int $try = 3): Folder {
+	private function getUniqueNamedFolder(string $userId, int $try = 3): Folder {
 		$userFolder = $this->rootFolder->getUserFolder($userId);
-		$randomId = bin2hex(random_bytes(4));
-		$sttFolderPath = Application::REC_FOLDER . ' ' . $randomId;
+		$sttFolderPath = Application::REC_FOLDER . ' ' . strval(4 - $try);
 
 		if ($userFolder->nodeExists($sttFolderPath)) {
 			if ($try === 0) {
-				// this should never happen in a sane world
-				throw new RuntimeException('Could not create a random folder');
+				// give up
+				throw new RuntimeException('Could not create a folder with a unique name');
 			}
-			return $this->getRandomNamedFolder($userId, $try - 1);
+			return $this->getUniqueNamedFolder($userId, $try - 1);
 		}
 
 		return $userFolder->newFolder($sttFolderPath);

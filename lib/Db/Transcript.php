@@ -34,8 +34,8 @@ use OCP\DB\Types;
  * Class Transcript
  *
  * @package OCA\Stt\Db
- * @method string getUserId()
- * @method void setUserId(string $userId)
+ * @method ?string getUserId()
+ * @method void setUserId(?string $userId)
  * @method string getTranscript()
  * @method void setTranscript(string $transcript)
  * @method \DateTime getLastAccessed()
