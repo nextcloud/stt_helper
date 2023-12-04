@@ -67,7 +67,7 @@ class Notifier implements INotifier {
 		$subject = '';
 		$content = '';
 		$actionLabel = '';
-		$message = $this->trimByWords($params['message']);
+		$message = $this->cutByWords($params['message']);
 
 		switch ($notification->getSubject()) {
 			case 'success':
@@ -107,7 +107,7 @@ class Notifier implements INotifier {
 		return $notification;
 	}
 
-	private function trimByWords(string $text, int $maxWords = 20): string {
+	private function cutByWords(string $text, int $maxWords = 20): string {
 		$words = explode(' ', $text);
 		$words = array_slice($words, 0, $maxWords);
 		$output = implode(' ', $words);

@@ -133,7 +133,7 @@ class SttController extends Controller {
 		} catch (Exception $e) {
 			$this->logger->error('Error: ' . $e->getMessage(), ['app' => Application::APP_ID]);
 			throw new Exception(
-				$this->l10n->t('Some internal error occurred, check logs to find out more'),
+				$this->l10n->t('Some internal error occurred. Contact your sysadmin for more info.'),
 				Http::STATUS_INTERNAL_SERVER_ERROR,
 			);
 		}
@@ -168,7 +168,7 @@ class SttController extends Controller {
 				['app' => Application::APP_ID]
 			);
 			return new DataResponse(
-				$this->l10n->t('Some internal error occurred. Check logs to find out more.'),
+				$this->l10n->t('Some internal error occurred. Contact your sysadmin for more info.'),
 				Http::STATUS_INTERNAL_SERVER_ERROR
 			);
 		} catch (PreConditionNotMetException $e) {
@@ -180,7 +180,7 @@ class SttController extends Controller {
 		} catch (InvalidArgumentException $e) {
 			$this->logger->error('InvalidArgumentException: ' . $e->getMessage(), ['app' => Application::APP_ID]);
 			return new DataResponse(
-				$this->l10n->t('Some internal error occurred. Check logs to find out more.'),
+				$this->l10n->t('Some internal error occurred. Contact your sysadmin for more info.'),
 				Http::STATUS_INTERNAL_SERVER_ERROR
 			);
 		}
@@ -212,7 +212,7 @@ class SttController extends Controller {
 				['app' => Application::APP_ID]
 			);
 			return new DataResponse(
-				$this->l10n->t('Some internal error occurred. Check logs to find out more.'),
+				$this->l10n->t('Some internal error occurred. Contact your sysadmin for more info.'),
 				Http::STATUS_INTERNAL_SERVER_ERROR
 			);
 		} catch (NotPermittedException $e) {
@@ -221,7 +221,7 @@ class SttController extends Controller {
 				['app' => Application::APP_ID]
 			);
 			return new DataResponse(
-				$this->l10n->t('No permission to create recording file/directory, check log files and your installation.'),
+				$this->l10n->t('No permission to create recording file/directory, contact your sysadmin to resolve this issue.'),
 				Http::STATUS_INTERNAL_SERVER_ERROR
 			);
 		} catch (PreConditionNotMetException $e) {
@@ -233,7 +233,7 @@ class SttController extends Controller {
 		} catch (InvalidArgumentException $e) {
 			$this->logger->error('InvalidArgumentException: ' . $e->getMessage(), ['app' => Application::APP_ID]);
 			return new DataResponse(
-				$this->l10n->t('Some internal error occurred. Check logs to find out more.'),
+				$this->l10n->t('Some internal error occurred. Contact your sysadmin for more info.'),
 				Http::STATUS_INTERNAL_SERVER_ERROR
 			);
 		}

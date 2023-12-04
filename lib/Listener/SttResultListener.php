@@ -56,7 +56,7 @@ class SttResultListener implements IEventListener {
 
 			try {
 				$transcriptEntity = new Transcript();
-				$transcriptEntity->setUserId($userId ?? '');
+				$transcriptEntity->setUserId($userId);
 				$transcriptEntity->setTranscript($transcript);
 				// never seen transcripts should also be deleted in the cleanup job
 				$transcriptEntity->setLastAccessed(new DateTime());
@@ -66,7 +66,9 @@ class SttResultListener implements IEventListener {
 				$this->sttService->sendNotification($id, $userId, true, $transcript);
 			} catch (\Exception $e) {
 				$this->logger->error('Failed to save transcript in DB: ' . $e->getMessage());
-				$this->sttService->sendNotification(0, $userId, false, 'Failed to save transcript in DB');
+				$this->sttService->sendNotification(0, $userId, false,
+					'Failed to save transcript, contact your sysadmin for more info.'
+				);
 			}
 		}
 
@@ -74,7 +76,9 @@ class SttResultListener implements IEventListener {
 			$error = $event->getErrorMessage();
 			$userId = $event->getUserId();
 			$this->logger->error('Transcript generation failed: ' . $event->getErrorMessage());
-			$this->sttService->sendNotification(0, $userId, false, $error);
+			$this->sttService->sendNotification(0, $userId, false,
+				'Failed to generate a transcript, contact your sysadmin for more info.'
+			);
 		}
 	}
 }
