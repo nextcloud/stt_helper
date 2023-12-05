@@ -5,9 +5,6 @@
       <directory suffix=".php">../appinfo</directory>
       <directory suffix=".php">../lib</directory>
     </include>
-    <report>
-      <clover outputFile="./clover.xml"/>
-    </report>
   </coverage>
   <testsuite name="Speech to Text Helper App Tests">
     <directory suffix="Test.php">.</directory>

@@ -33,11 +33,10 @@ jobs:
       # do not stop on another job's failure
       fail-fast: false
       matrix:
-        php-versions: ['8.1']
-        databases: ['sqlite']
-        server-versions: ['master']
+        php-versions: [ '8.0', '8.1', '8.2' ]
+        server-versions: ['master', 'stable28', 'stable27']
 
-    name: php${{ matrix.php-versions }}-${{ matrix.databases }}-${{ matrix.server-versions }}
+    name: php${{ matrix.php-versions }}-sqlite-${{ matrix.server-versions }}
 
     steps:
       - name: Checkout server
@@ -71,4 +70,4 @@ jobs:
 
       - name: PHPUnit
         working-directory: apps/${{ env.APP_NAME }}
-        run: phpunit -c tests/phpunit.xml
+        run: composer run test
