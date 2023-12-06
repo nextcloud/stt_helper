@@ -81,7 +81,7 @@ class TranscriptMapper extends QBMapper {
 			->delete($this->getTableName())
 			->where($qb->expr()->lte(
 				'last_accessed',
-				$qb->createNamedParameter(new DateTime('-1 hour'), IQueryBuilder::PARAM_DATE)
+				$qb->createNamedParameter(new DateTime('-2 weeks'), IQueryBuilder::PARAM_DATE)
 			))
 		;
 

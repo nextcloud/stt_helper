@@ -19,6 +19,17 @@ class SttServiceTest extends TestCase {
 
 	private const TEST_FILE = 'tests/data/text_sample_file.mp3';
 
+	public static function caseBank(): array {
+		return [
+			// case '(not set)', folder 'Application::REC_FOLDER' does not exist
+			['(not set)', Application::REC_FOLDER, false],
+			// case '(not set)', folder 'Application::REC_FOLDER' does exist
+			['(not set)', Application::REC_FOLDER . ' 1', true],
+			// case 'Application::REC_FOLDER' folder 'Application::REC_FOLDER' does exist
+			[Application::REC_FOLDER, Application::REC_FOLDER, true],
+		];
+	}
+
 	private SttService $service;
 	/** @var ISpeechToTextManager|MockObject */
 	private $manager;
@@ -79,22 +90,16 @@ class SttServiceTest extends TestCase {
 		$this->assertEquals($transcript, $this->service->transcribeFile($filepath, false, null));
 	}
 
-	public function testAudioTranscription() {
-		// case '(not set)', folder 'Application::REC_FOLDER' does not exist
-		$this->doCase('(not set)', Application::REC_FOLDER, false);
-
-		// case '(not set)', folder 'Application::REC_FOLDER' does exist
-		$this->doCase('(not set)', Application::REC_FOLDER . ' 1', true);
-
-		// case 'Application::REC_FOLDER' folder 'Application::REC_FOLDER' does exist
-		$this->doCase(Application::REC_FOLDER, Application::REC_FOLDER, true);
-
+	public function testAudioTranscriptionWithoutUserId() {
 		// null userId
 		$this->expectException(\InvalidArgumentException::class);
-		$this->assertEquals('ok', $this->service->transcribeFile('', true, null));
+		$this->assertEquals('ok', $this->service->transcribeAudio('', true, null));
 	}
 
-	private function doCase(
+	/**
+	 * @dataProvider caseBank
+	 */
+	public function testAudioTranscription(
 		string $configValue,
 		string $finalFolderName,
 		bool $folderExists,
