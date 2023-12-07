@@ -56,24 +56,15 @@
 			</div>
 			<div class="footer">
 				<NcButton
-					type="secondary"
-					:disabled="loading || (audioData == null && audioFilePath == null)"
-					@click="onInputEnter(true)">
-					<template #icon>
-						<ArrowRightIcon />
-					</template>
-					{{ t('stt_helper', 'Schedule') }}
-				</NcButton>
-				<NcButton
 					type="primary"
 					:disabled="loading || (audioData == null && audioFilePath == null)"
-					@click="onInputEnter(false)">
+					@click="onInputEnter">
 					<template #icon>
 						<NcLoadingIcon v-if="loading"
 							:size="20" />
 						<ArrowRightIcon v-else />
 					</template>
-					{{ t('stt_helper', 'Transcribe') }}
+					{{ t('stt_helper', 'Schedule Transcription') }}
 				</NcButton>
 			</div>
 		</div>
@@ -168,43 +159,37 @@ export default {
 			}
 		},
 
-		async onInputEnter(schedule) {
+		async onInputEnter() {
 			if (this.mode === 'record') {
 				const url = generateUrl('/apps/stt_helper/transcribeAudio')
 				const formData = new FormData()
 				formData.append('audioData', this.audioData)
-				formData.append('schedule', !!schedule)
-				await this.apiRequest(url, formData, !!schedule)
+				await this.apiRequest(url, formData)
 			} else {
 				const url = generateUrl('/apps/stt_helper/transcribeFile')
-				const params = { path: this.audioFilePath, schedule: !!schedule }
-				await this.apiRequest(url, params, !!schedule)
+				const params = { path: this.audioFilePath }
+				await this.apiRequest(url, params)
 			}
 
 			this.resetAudioState()
 		},
 
-		async apiRequest(url, data, schedule) {
+		async apiRequest(url, data) {
+			this.loading = true
 			try {
-				this.loading = true
-				const response = await axios.post(url, data)
-				this.loading = false
-
-				if (schedule) {
-					showSuccess(t('stt_helper', 'Successfully scheduled transcription'))
-					return this.$emit('submit', '')
-				}
-
-				this.$emit('submit', response.data?.trim() ?? '')
+				await axios.post(url, data)
+				showSuccess(t('stt_helper', 'Successfully scheduled transcription'))
+				this.$emit('submit', '')
 			} catch (error) {
-				this.loading = false
 				console.error('API error:', error)
 				this.resetAudioState()
 				showError(
-					t('stt_helper', 'Failed to schedule/get transcription')
+					t('stt_helper', 'Failed to schedule transcription')
 					+ (': ' + error.response?.data
 						|| error.message
 						|| t('stt_helper', 'Unknown API error')))
+			} finally {
+				this.loading = false
 			}
 		},
 	},

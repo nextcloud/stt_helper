@@ -19,17 +19,6 @@ class SttServiceTest extends TestCase {
 
 	private const TEST_FILE = 'tests/data/text_sample_file.mp3';
 
-	public static function caseBank(): array {
-		return [
-			// case '(not set)', folder 'Application::REC_FOLDER' does not exist
-			['(not set)', Application::REC_FOLDER, false],
-			// case '(not set)', folder 'Application::REC_FOLDER' does exist
-			['(not set)', Application::REC_FOLDER . ' 1', true],
-			// case 'Application::REC_FOLDER' folder 'Application::REC_FOLDER' does exist
-			[Application::REC_FOLDER, Application::REC_FOLDER, true],
-		];
-	}
-
 	private SttService $service;
 	/** @var ISpeechToTextManager|MockObject */
 	private $manager;
@@ -72,7 +61,6 @@ class SttServiceTest extends TestCase {
 
 	public function testFileTranscription() {
 		$filepath = 'music.mp3';
-		$transcript = 'badum tss';
 		$userId = 'dummy';
 
 		$userFolder = $this->createMock(Folder::class);
@@ -80,20 +68,23 @@ class SttServiceTest extends TestCase {
 
 		$this->rootFolder->method('getUserFolder')->with($userId)->willReturn($userFolder);
 		$userFolder->method('get')->with($filepath)->willReturn($file);
-		$this->manager->method('transcribeFile')->with($file)->willReturn($transcript);
+		$this->manager
+			->expects($this->once())
+			->method('scheduleFileTranscription')
+			->with($file)
+		;
 
-		$this->assertEquals('ok', $this->service->transcribeFile($filepath, true, $userId));
-		$this->assertEquals($transcript, $this->service->transcribeFile($filepath, false, $userId));
+		$this->service->transcribeFile($filepath, $userId);
 
 		// null userId
 		$this->expectException(\InvalidArgumentException::class);
-		$this->assertEquals($transcript, $this->service->transcribeFile($filepath, false, null));
+		$this->service->transcribeFile($filepath, null);
 	}
 
 	public function testAudioTranscriptionWithoutUserId() {
 		// null userId
 		$this->expectException(\InvalidArgumentException::class);
-		$this->assertEquals('ok', $this->service->transcribeAudio('', true, null));
+		$this->service->transcribeAudio('', null);
 	}
 
 	/**
@@ -105,13 +96,13 @@ class SttServiceTest extends TestCase {
 		bool $folderExists,
 		string $existingFolderName = Application::REC_FOLDER,
 	) {
-		$this->setUp();
+		static $userId = 'dummy';
 
 		$userFolder = $this->createMock(Folder::class);
 		$recFolder = $this->createMock(Folder::class);
 		$audioFile = $this->createMock(File::class);
 
-		$this->rootFolder->method('getUserFolder')->willReturn($userFolder);
+		$this->rootFolder->method('getUserFolder')->with($userId)->willReturn($userFolder);
 
 		$userFolder->method('nodeExists')->willReturnCallback(function (
 			string $name,
@@ -148,13 +139,36 @@ class SttServiceTest extends TestCase {
 			})
 		;
 
+		/** @var ?File */
+		$receivedFile = null;
+
+		$this->manager
+			->expects($this->once())
+			->method('scheduleFileTranscription')
+			->with($audioFile)
+			->willReturnCallback(function (File $file) use (&$receivedFile) {
+				$receivedFile = $file;
+			})
+		;
+
+		$this->service->transcribeAudio(static::TEST_FILE, $userId);
+
+		$this->assertNotEquals($receivedFile, null);
+		$this->assertEquals($receivedFile->getName(), $audioFile->getName());
+
+		$receivedFileContents = fread($receivedFile->fopen('rb'), filesize(static::TEST_FILE));
 		$testFileContents = file_get_contents(static::TEST_FILE);
-		$this->manager->method('transcribeFile')->with($audioFile)->willReturn($testFileContents);
+		$this->assertEquals($receivedFileContents, $testFileContents);
+	}
 
-		$this->assertEquals('ok', $this->service->transcribeAudio(static::TEST_FILE, true, 'dummy'));
-
-		$this->assertEquals($testFileContents, $this->service->transcribeAudio(static::TEST_FILE, false, 'dummy'));
-		$audioFileHandle = $audioFile->fopen('rb');
-		$this->assertEquals(fread($audioFileHandle, filesize(static::TEST_FILE)), $testFileContents);
+	public static function caseBank(): array {
+		return [
+			// case '(not set)', folder 'Application::REC_FOLDER' does not exist
+			['(not set)', Application::REC_FOLDER, false],
+			// case '(not set)', folder 'Application::REC_FOLDER' does exist
+			['(not set)', Application::REC_FOLDER . ' 1', true],
+			// case 'Application::REC_FOLDER' folder 'Application::REC_FOLDER' does exist
+			[Application::REC_FOLDER, Application::REC_FOLDER, true],
+		];
 	}
 }

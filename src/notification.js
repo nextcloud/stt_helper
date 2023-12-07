@@ -39,7 +39,8 @@ async function fetchTranscript(transcriptId) {
  */
 async function openModal(transcript) {
 	const { default: Vue } = await import(/* webpackChunkName: "vue-lazy" */'vue')
-	const { default: ResultModal } = await import(/* webpackChunkName: "stt_helper-modal-lazy" */'./components/ResultModal.vue')
+	const { default: ResultModal }
+		= await import(/* webpackChunkName: "stt_helper-modal-lazy" */'./components/ResultModal.vue')
 	Vue.mixin({ methods: { t, n } })
 
 	const modalElement = document.createElement('div')
