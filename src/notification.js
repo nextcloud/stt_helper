@@ -2,11 +2,9 @@
  * @param {event} event notification event
  */
 export function handleNotification(event) {
-	console.debug('stt_helper: handleNotification', event)
 	if (event.notification.app !== 'stt_helper' || event.action.type !== 'WEB') {
 		return
 	}
-	console.debug('stt_helper: handleNotification', event)
 	event.cancelAction = true
 	fetchTranscript(event.notification.objectId)
 }

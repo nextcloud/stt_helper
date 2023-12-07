@@ -20,6 +20,7 @@ NOTE: This integration requires a separate integration to be installed that expo
     <bugs>https://github.com/nextcloud/stt_helper/issues</bugs>
     <screenshot>https://github.com/nextcloud/stt_helper/raw/main/img/screenshot1.jpg</screenshot>
     <screenshot>https://github.com/nextcloud/stt_helper/raw/main/img/screenshot2.jpg</screenshot>
+    <screenshot>https://github.com/nextcloud/stt_helper/raw/main/img/screenshot3.jpg</screenshot>
     <background-jobs>
 		<job>OCA\Stt\Cron\CleanupTranscriptions</job>
 	</background-jobs>
