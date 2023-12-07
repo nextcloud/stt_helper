@@ -89,55 +89,40 @@ class SttService {
 
 	/**
 	 * @param string $path
-	 * @param bool $schedule
 	 * @param string|null $userId
-	 * @return string The transcript
 	 * @throws NotFoundException
 	 * @throws NotPermittedException
 	 * @throws PreConditionNotMetException
 	 * @throws InvalidArgumentException
 	 * @throws RuntimeException
 	 */
-	public function transcribeFile(string $path, bool $schedule, ?string $userId): string {
+	public function transcribeFile(string $path, ?string $userId): void {
 		// this also prevents NoUserException
-		if ($userId === null) {
+		if (is_null($userId)) {
 			throw new InvalidArgumentException('userId must not be null');
 		}
 
 		$userFolder = $this->rootFolder->getUserFolder($userId);
 		$audioFile = $userFolder->get($path);
 
-		if ($schedule) {
-			$this->manager->scheduleFileTranscription($audioFile, $userId, Application::APP_ID);
-			return 'ok';
-		}
-
-		return $this->manager->transcribeFile($audioFile);
+		$this->manager->scheduleFileTranscription($audioFile, $userId, Application::APP_ID);
 	}
 
 	/**
 	 * @param string $tempFileLocation
-	 * @param bool $schedule
 	 * @param string|null $userId
-	 * @return string The transcript
 	 * @throws NotPermittedException
 	 * @throws PreConditionNotMetException
 	 * @throws InvalidArgumentException
 	 * @throws RuntimeException
 	 */
-	public function transcribeAudio(string $tempFileLocation, bool $schedule, ?string $userId): string {
+	public function transcribeAudio(string $tempFileLocation, ?string $userId): void {
 		if ($userId === null) {
 			throw new InvalidArgumentException('userId must not be null');
 		}
 
 		$audioFile = $this->getFileObject($userId, $tempFileLocation);
-
-		if ($schedule) {
-			$this->manager->scheduleFileTranscription($audioFile, $userId, Application::APP_ID);
-			return 'ok';
-		}
-
-		return $this->manager->transcribeFile($audioFile);
+		$this->manager->scheduleFileTranscription($audioFile, $userId, Application::APP_ID);
 	}
 
 	/**

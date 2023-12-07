@@ -145,7 +145,6 @@ class SttController extends Controller {
 	#[NoAdminRequired]
 	public function transcribeAudio(): DataResponse {
 		$audioData = $this->request->getUploadedFile('audioData');
-		$schedule = $this->request->getParam('schedule', 'false') === 'true';
 
 		if ($audioData['error'] !== 0) {
 			return new DataResponse('Error in audio file upload: ' . $audioData['error'], Http::STATUS_BAD_REQUEST);
@@ -160,8 +159,8 @@ class SttController extends Controller {
 		}
 
 		try {
-			$transcription = $this->service->transcribeAudio($audioData['tmp_name'], $schedule, $this->userId);
-			return new DataResponse($transcription);
+			$this->service->transcribeAudio($audioData['tmp_name'], $this->userId);
+			return new DataResponse('ok');
 		} catch (RuntimeException $e) {
 			$this->logger->error(
 				'Runtime exception: ' . $e->getMessage(),
@@ -188,18 +187,17 @@ class SttController extends Controller {
 
 	/**
 	 * @param string $path Nextcloud file path
-	 * @param bool $schedule
 	 * @return DataResponse
 	 */
 	#[NoAdminRequired]
-	public function transcribeFile(string $path, bool $schedule): DataResponse {
+	public function transcribeFile(string $path): DataResponse {
 		if ($path === '') {
 			return new DataResponse('Empty file path received', Http::STATUS_BAD_REQUEST);
 		}
 
 		try {
-			$transcription = $this->service->transcribeFile($path, $schedule, $this->userId);
-			return new DataResponse($transcription);
+			$this->service->transcribeFile($path, $this->userId);
+			return new DataResponse('ok');
 		} catch (NotFoundException $e) {
 			$this->logger->error('Audio file not found: ' . $e->getMessage(), ['app' => Application::APP_ID]);
 			return new DataResponse(
