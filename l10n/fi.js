@@ -5,7 +5,6 @@ OC.L10N.register(
     "Speech to Text" : "Puheesta tekstiksi",
     "Record Audio" : "Tallenna ääntä",
     "Choose Audio File" : "Valitse äänitiedosto",
-    "No audio file selected (Only MP3 format is supported)" : "Äänitiedostoa ei ole valittu (vain MP3-muoto on tuettu)",
     "Selected Audio File:" : "Valitse äänitiedosto:",
     "Unknown API error" : "Tuntematon API-virhe"
 },
