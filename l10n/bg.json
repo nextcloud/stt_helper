@@ -1,0 +1,6 @@
+{ "translations": {
+    "Close" : "Затваряне",
+    "Copy" : "Копие",
+    "Copy to Clipboard" : "Копиране в Клипборда"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

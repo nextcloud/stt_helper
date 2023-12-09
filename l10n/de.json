@@ -1,0 +1,7 @@
+{ "translations": {
+    "Close" : "Schließen",
+    "Copy" : "Kopieren",
+    "Copied" : "Kopiert",
+    "Copy to Clipboard" : "In die Zwischenablage kopieren"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

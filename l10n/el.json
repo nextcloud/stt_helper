@@ -1,0 +1,7 @@
+{ "translations": {
+    "Close" : "Κλείσιμο",
+    "Copy" : "Αντιγραφή",
+    "Copied" : "Αντιγράφηκε",
+    "Copy to Clipboard" : "Αντιγραφή στο πρόχειρο"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
