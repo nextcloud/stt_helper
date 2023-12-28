@@ -3,6 +3,8 @@ OC.L10N.register(
     {
     "Audio file not found." : "Äänitiedostoa ei löytynyt.",
     "Speech to Text" : "Puheesta tekstiksi",
+    "Close" : "Sulje",
+    "Copy" : "Kopioi",
     "Record Audio" : "Tallenna ääntä",
     "Choose Audio File" : "Valitse äänitiedosto",
     "Selected Audio File:" : "Valitse äänitiedosto:",

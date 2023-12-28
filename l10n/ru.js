@@ -9,6 +9,7 @@ OC.L10N.register(
     "Close" : "Закрыть",
     "Copy" : "Копировать",
     "Copied" : "Скопированный",
+    "Copy to Clipboard" : "Скопировано в буфер обмена",
     "Record Audio" : "Запись аудио",
     "Choose Audio File" : "Выберите аудиофайл",
     "Selected Audio File:" : "Выбранный аудиофайл:",
