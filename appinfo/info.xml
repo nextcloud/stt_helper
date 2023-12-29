@@ -7,7 +7,7 @@
 It enables the user to generate transcriptions of recorded audio or an audio file provided.
 
 NOTE: This integration requires a separate integration to be installed that exposes a SpeechToText processing provider, like the Whisper Speech-To-Text App, for example.]]></description>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <licence>agpl</licence>
     <author>Anupam Kumar</author>
     <namespace>Stt</namespace>
