@@ -18,13 +18,14 @@ NOTE: This integration requires a separate integration to be installed that expo
     <category>dashboard</category>
     <website>https://github.com/nextcloud/stt_helper</website>
     <bugs>https://github.com/nextcloud/stt_helper/issues</bugs>
-    <screenshot>https://github.com/nextcloud/stt_helper/raw/main/img/screenshot1.jpg</screenshot>
-    <screenshot>https://github.com/nextcloud/stt_helper/raw/main/img/screenshot2.jpg</screenshot>
-    <screenshot>https://github.com/nextcloud/stt_helper/raw/main/img/screenshot3.jpg</screenshot>
+    <screenshot>https://raw.githubusercontent.com/nextcloud/stt_helper/main/img/screenshot0.png</screenshot>
+    <screenshot>https://raw.githubusercontent.com/nextcloud/stt_helper/main/img/screenshot1.png</screenshot>
+    <screenshot>https://raw.githubusercontent.com/nextcloud/stt_helper/main/img/screenshot2.png</screenshot>
+    <screenshot>https://raw.githubusercontent.com/nextcloud/stt_helper/main/img/screenshot3.png</screenshot>
     <background-jobs>
 		<job>OCA\Stt\Cron\CleanupTranscriptions</job>
 	</background-jobs>
     <dependencies>
-        <nextcloud min-version="27" max-version="28"/>
+        <nextcloud min-version="27" max-version="29"/>
     </dependencies>
 </info>
