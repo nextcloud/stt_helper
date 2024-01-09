@@ -6,6 +6,7 @@ OC.L10N.register(
     "Speech to Text" : "Synthèse vocale",
     "Close" : "Fermer",
     "Copy" : "Copier",
+    "Copied" : "Copié",
     "Copy to Clipboard" : "Copier dans le presse-papier",
     "Record Audio" : "Enregistrement audio",
     "Choose Audio File" : "Choisissez un fichier audio",
