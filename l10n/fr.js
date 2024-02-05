@@ -1,6 +1,7 @@
 OC.L10N.register(
     "stt_helper",
     {
+    "Some internal error occurred. Contact your sysadmin for more info." : "Une erreur interne est survenue. Contactez votre administrateur système pour en savoir plus.",
     "No Speech-to-Text provider found, install one from the app store to use this feature." : "Aucun fournisseur de reconnaissance vocale trouvé. Installez-en un depuis le magasin d'applications pour utiliser cette fonctionnalité.",
     "Audio file not found." : "Fichier audio introuvable.",
     "Speech to Text" : "Synthèse vocale",
