@@ -8,6 +8,7 @@ OC.L10N.register(
     "No permission to create recording file/directory, contact your sysadmin to resolve this issue." : "Ingen tillatelse til å opprette opptaksfil/katalog, kontakt din systemadmin for å løse dette problemet.",
     "Close" : "Lukk",
     "Copy" : "Kopi",
+    "Copy to Clipboard" : "Koper til utklippstavlen",
     "Record Audio" : "Ta opp lyd",
     "Choose Audio File" : "Velg lydfil",
     "No audio file selected" : "Ingen lydfil valgt",
