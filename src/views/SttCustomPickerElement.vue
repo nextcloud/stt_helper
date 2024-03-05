@@ -77,13 +77,13 @@ import ArrowRightIcon from 'vue-material-design-icons/ArrowRight.vue'
 import SttIcon from '../components/icons/SttIcon.vue'
 
 import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
-import NcLoadingIcon from '@nextcloud/vue/dist/Components/NcLoadingIcon.js'
 import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
+import NcLoadingIcon from '@nextcloud/vue/dist/Components/NcLoadingIcon.js'
 import VueAudioRecorder from 'vue2-audio-recorder'
 
 import axios from '@nextcloud/axios'
-import { generateUrl } from '@nextcloud/router'
 import { getFilePickerBuilder, showError, showSuccess } from '@nextcloud/dialogs'
+import { generateUrl } from '@nextcloud/router'
 
 import Vue from 'vue'
 Vue.use(VueAudioRecorder)
@@ -103,7 +103,6 @@ const VALID_MIME_TYPES = [
 
 const picker = getFilePickerBuilder(t('stt_helper', 'Choose Audio File'))
 	.setMimeTypeFilter(VALID_MIME_TYPES)
-	.setModal(true)
 	.setMultiSelect(false)
 	.allowDirectories(false)
 	.setType(1)
