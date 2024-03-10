@@ -6,6 +6,7 @@ OC.L10N.register(
     "Audio file not found." : "Fichier audio introuvable.",
     "Speech to Text" : "Synthèse vocale",
     "Close" : "Fermer",
+    "Transcript" : "Transcription",
     "Copy" : "Copier",
     "Copied" : "Copié",
     "Copy to Clipboard" : "Copier dans le presse-papier",
