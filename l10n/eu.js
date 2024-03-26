@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Close" : "Itxi",
     "Copy" : "Kopiatu",
-    "Copy to Clipboard" : "Kopiatu arbelera"
+    "Copy to Clipboard" : "Kopiatu arbelera",
+    "Unknown API error" : "API errore ezezaguna"
 },
 "nplurals=2; plural=(n != 1);");
