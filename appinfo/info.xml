@@ -3,7 +3,9 @@
     <id>stt_helper</id>
     <name>Speech to Text Helper App</name>
     <summary>A smart picker provider that utilises the Speech to Text OCP API</summary>
-    <description><![CDATA[This app implements a smart picker provider that utilises the Speech to Text OCP API.
+    <description><![CDATA[⚠️ This app is now deprecated. The feature it provides is now included in the [Assistant app](https://apps.nextcloud.com/apps/assistant).
+
+This app implements a smart picker provider that utilises the Speech to Text OCP API.
 It enables the user to generate transcriptions of recorded audio or an audio file provided.
 
 NOTE: This integration requires a separate integration to be installed that exposes a SpeechToText processing provider, like the Whisper Speech-To-Text App, for example.]]></description>

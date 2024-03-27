@@ -1,5 +1,7 @@
 # Speech to Text Helper App
 
+:warning: This app is now deprecated. The feature it provides is now included in the [Assistant app](https://apps.nextcloud.com/apps/assistant).
+
 This app implements a smart picker provider that utilises the Speech to Text OCP API.  
 It enables the user to generate transcriptions of recorded audio or an audio file provided.
 
