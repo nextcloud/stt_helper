@@ -16,7 +16,6 @@
     "Speech to Text" : "Dictado a texto",
     "Speech to Text Helper App" : "Aplicación de ayuda de dictado a texto",
     "A smart picker provider that utilises the Speech to Text OCP API" : "Un proveedor de selección inteligente que utiliza la API OCP de voz a texto",
-    "This app implements a smart picker provider that utilises the Speech to Text OCP API.\nIt enables the user to generate transcriptions of recorded audio or an audio file provided.\n\nNOTE: This integration requires a separate integration to be installed that exposes a SpeechToText processing provider, like the Whisper Speech-To-Text App, for example." : "Esta app implementa un proveedor de selección inteligente que utiliza el API de dictado a texto OCP.\nPermite al usuario generar transcripciones de grabaciones de audio o de un archivo de audio proporcionado.\n\nNOTA: Esta integración requiere una integración separada que debe ser instalada que expone un proveedor de procesamiento SpeechToText, como por ejemplo, la App Whisper de dictado a texto.",
     "Close Modal" : "Cerrar diálogo modal",
     "Close" : "Cerrar",
     "Transcript" : "Transcripción",

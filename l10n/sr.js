@@ -18,7 +18,6 @@ OC.L10N.register(
     "Speech to Text" : "Говор у текст",
     "Speech to Text Helper App" : "Помоћна апликација за претварање говора у текст",
     "A smart picker provider that utilises the Speech to Text OCP API" : "Понуђач услуге за паметни бирач који користи OCP API претварања говора у текст",
-    "This app implements a smart picker provider that utilises the Speech to Text OCP API.\nIt enables the user to generate transcriptions of recorded audio or an audio file provided.\n\nNOTE: This integration requires a separate integration to be installed that exposes a SpeechToText processing provider, like the Whisper Speech-To-Text App, for example." : "Ова апликација имплементира паметни бирач који користи Говор у текст OCP API.\nОна омогућава кориснику да генерише транскрипције снимљеног говора или достављеног звучног фајла.\n\nНАПОМЕНА: за ову интеграцију је потребно да се инсталира посебна интеграција која излаже пружаоца услуге обраде говора у текст, као што је то, на пример, апликација Whisper Speech-To-Text.",
     "Close Modal" : "Затвори модални прозор",
     "Close" : "Затвори",
     "Transcript" : "Транскрипт",

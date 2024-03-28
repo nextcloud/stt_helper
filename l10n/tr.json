@@ -16,7 +16,6 @@
     "Speech to Text" : "Konuşmadan yazıya",
     "Speech to Text Helper App" : "Konuşmadan yazıya yardımcı uygulaması",
     "A smart picker provider that utilises the Speech to Text OCP API" : "Konuşmayı yazıya dönüştürme OCP API uygulamasını kullanan akıllı bir seçici hizmeti sağlayıcı",
-    "This app implements a smart picker provider that utilises the Speech to Text OCP API.\nIt enables the user to generate transcriptions of recorded audio or an audio file provided.\n\nNOTE: This integration requires a separate integration to be installed that exposes a SpeechToText processing provider, like the Whisper Speech-To-Text App, for example." : "Bu uygulama, Konuşmadan yazıya OCP API kullanan bir akıllı seçici hizmeti sağlayıcısı ekler.\nKullanıcının, kaydedilen sesi ya da verilen bir ses dosyasını dönüştürmesini sağlar.\n\nNOT: Bu bütünleştirme, örneğin Whisper Speech-To-Text Uygulaması gibi bir SpeechToText işleme hizmeti sağlayıcısını açığa çıkaran ayrı bir bütünleştirmenin kurulmasını gerektirir.",
     "Close Modal" : "Pencereyi kapat",
     "Close" : "Kapat",
     "Transcript" : "Dönüştürme",

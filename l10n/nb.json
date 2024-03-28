@@ -16,7 +16,6 @@
     "Speech to Text" : "Tale til tekst",
     "Speech to Text Helper App" : "Hjelpeapp for tale til tekst",
     "A smart picker provider that utilises the Speech to Text OCP API" : "En smart velger-leverandør som bruker OCP-API-en for tale til tekst",
-    "This app implements a smart picker provider that utilises the Speech to Text OCP API.\nIt enables the user to generate transcriptions of recorded audio or an audio file provided.\n\nNOTE: This integration requires a separate integration to be installed that exposes a SpeechToText processing provider, like the Whisper Speech-To-Text App, for example." : "Denne appen implementerer en leverandør av smartvelgere som bruker OCP-API-en for tale til tekst.\nDet gjør det mulig for brukeren å generere transkripsjoner av innspilt lyd eller en lydfil som følger med.\n\nMerk: Denne integreringen krever at det installeres en separat integrasjon som eksponerer en TaleTilTekst-behandlingsleverandør, for eksempel Whisper Speech-to-Text-appen.",
     "Close Modal" : "Lukk modalen",
     "Close" : "Lukk",
     "Transcript" : "Transkript",

@@ -16,7 +16,6 @@
     "Speech to Text" : "Speech to Text",
     "Speech to Text Helper App" : "Speech to Text Helper App",
     "A smart picker provider that utilises the Speech to Text OCP API" : "A smart picker provider that utilises the Speech to Text OCP API",
-    "This app implements a smart picker provider that utilises the Speech to Text OCP API.\nIt enables the user to generate transcriptions of recorded audio or an audio file provided.\n\nNOTE: This integration requires a separate integration to be installed that exposes a SpeechToText processing provider, like the Whisper Speech-To-Text App, for example." : "This app implements a smart picker provider that utilises the Speech to Text OCP API.\nIt enables the user to generate transcriptions of recorded audio or an audio file provided.\n\nNOTE: This integration requires a separate integration to be installed that exposes a SpeechToText processing provider, like the Whisper Speech-To-Text App, for example.",
     "Close Modal" : "Close Modal",
     "Close" : "Close",
     "Transcript" : "Transcript",

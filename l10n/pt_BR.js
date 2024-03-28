@@ -18,7 +18,6 @@ OC.L10N.register(
     "Speech to Text" : "Fala para texto",
     "Speech to Text Helper App" : "Aplicativo auxiliar de fala para texto",
     "A smart picker provider that utilises the Speech to Text OCP API" : "Um provedor de seleção inteligente que utiliza a API Speech to Text OCP",
-    "This app implements a smart picker provider that utilises the Speech to Text OCP API.\nIt enables the user to generate transcriptions of recorded audio or an audio file provided.\n\nNOTE: This integration requires a separate integration to be installed that exposes a SpeechToText processing provider, like the Whisper Speech-To-Text App, for example." : "Este aplicativo implementa um provedor de seletor inteligente que utiliza a API Speech to Text OCP.\nEle permite ao usuário gerar transcrições de áudio gravado ou de um arquivo de áudio fornecido.\n\nNOTA: Esta integração requer a instalação de uma integração separada que expõe um provedor de processamento SpeechToText, como o aplicativo Whisper Speech-To-Text, por exemplo.",
     "Close Modal" : "Fechar Modal",
     "Close" : "Fechar",
     "Transcript" : "Transcrição",

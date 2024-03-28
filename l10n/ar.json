@@ -16,7 +16,6 @@
     "Speech to Text" : "كلام إلى نص",
     "Speech to Text Helper App" : "التطبيق المساعد للتحويل من كلام إلى نص",
     "A smart picker provider that utilises the Speech to Text OCP API" : "مُزوِّد لاقط ذكي smart picker يقوم باستغلال API للتحويل من كلام إلى نص في OCP.",
-    "This app implements a smart picker provider that utilises the Speech to Text OCP API.\nIt enables the user to generate transcriptions of recorded audio or an audio file provided.\n\nNOTE: This integration requires a separate integration to be installed that exposes a SpeechToText processing provider, like the Whisper Speech-To-Text App, for example." : "هذا التطبيق يوفّر مزوداُ للاقط ذكي يُوظّف واجهةً للتحويل من كلام إلى نص Speech to Text OCP API. \nو هي تُمكّن المستخدِم من توليد مستنسخ نصّي من الصوت المسجل أو الملف الصوتي المقدم. \n\nملاحظة: يتطلب هذا التكامل تثبيت تكامل منفصل يُوفّر مزُوّداً للتحويل من كلام إلى نص، مثل تطبيق \"الهامس\" Whisper Speech-To-Text.",
     "Close Modal" : "أغلِق النافذة الشرطية",
     "Close" : "إغلاق",
     "Transcript" : "نَص",
