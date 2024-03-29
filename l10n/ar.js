@@ -18,6 +18,7 @@ OC.L10N.register(
     "Speech to Text" : "كلام إلى نص",
     "Speech to Text Helper App" : "التطبيق المساعد للتحويل من كلام إلى نص",
     "A smart picker provider that utilises the Speech to Text OCP API" : "مُزوِّد لاقط ذكي smart picker يقوم باستغلال API للتحويل من كلام إلى نص في OCP.",
+    "⚠️ This app is now deprecated. The feature it provides is now included in the [Assistant app](https://apps.nextcloud.com/apps/assistant).\n\nThis app implements a smart picker provider that utilises the Speech to Text OCP API.\nIt enables the user to generate transcriptions of recorded audio or an audio file provided.\n\nNOTE: This integration requires a separate integration to be installed that exposes a SpeechToText processing provider, like the Whisper Speech-To-Text App, for example." : "⚠️ هذا التطبيق مُهمل الآن. الميزة التي كان يوفرها هذا التطبيقا مضمنة الآن في [تطبيق المساعد Assistant App] (https://apps.nextcloud.com/apps/assistant). \n\nيوفر هذا التطبيق لاقطاُ ذكياً يُوظّف واجهة التطبيق OCP لتحويل الكلام إلى نص. و هو يسمح للمستخدم بتوليد مستنسخ نصي من الصوت المسجل أو الملف الصوتي المُعطى. \n\nملاحظة: يتطلب هذا التكامل تثبيت تكامل منفصل يكشف عن مزود معالجة تحويل الكلام إلى نص. مثل تطبيق Whisper Speech-To-Text، على سبيل المثال.",
     "Close Modal" : "أغلِق النافذة الشرطية",
     "Close" : "إغلاق",
     "Transcript" : "نَص",

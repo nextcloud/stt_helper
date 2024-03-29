@@ -6,6 +6,7 @@ OC.L10N.register(
     "Audio file not found." : "Nun s'atopó'l ficheru d'audiu.",
     "Close" : "Zarrar",
     "Copy" : "Copiar",
+    "Copied" : "Copióse",
     "Record Audio" : "Grabar l'audiu",
     "Choose Audio File" : "Escoyer un ficheru d'audiu",
     "No audio file selected" : "Nun se seleicionó nengún audiu",
