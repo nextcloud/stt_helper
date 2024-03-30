@@ -16,6 +16,7 @@
     "Speech to Text" : "Sprache-zu-Text",
     "Speech to Text Helper App" : "Sprache-zu-Text-Helfer-App",
     "A smart picker provider that utilises the Speech to Text OCP API" : "Ein Smart Picker-Anbieter, der die Sprache-zu-Text-OCP-API nutzt",
+    "⚠️ This app is now deprecated. The feature it provides is now included in the [Assistant app](https://apps.nextcloud.com/apps/assistant).\n\nThis app implements a smart picker provider that utilises the Speech to Text OCP API.\nIt enables the user to generate transcriptions of recorded audio or an audio file provided.\n\nNOTE: This integration requires a separate integration to be installed that exposes a SpeechToText processing provider, like the Whisper Speech-To-Text App, for example." : "⚠️ Diese App ist veraltet. Die bereitgestellte Funktion ist jetzt in der [Assistant-App](https://apps.nextcloud.com/apps/assistant) enthalten.\n\nDiese App implementiert einen Smart Picker-Anbieter, der die Sprache-zu-Text-OCP-API nutzt.\nEs ermöglicht dem Benutzer, Transkriptionen von aufgezeichnetem Audio oder einer bereitgestellten Audiodatei zu erstellen.\n\nHINWEIS: Für diese Integration muss eine separate Integration installiert werden, die einen Sprache-zu-Text-Erstellungsanbieter bereitstellt, wie z.B. die Whisper Sprache-zu-Text-App.",
     "Close Modal" : "Modal schließen",
     "Close" : "Schließen",
     "Transcript" : "Transkript",

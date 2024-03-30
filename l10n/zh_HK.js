@@ -18,6 +18,7 @@ OC.L10N.register(
     "Speech to Text" : "語音轉文字",
     "Speech to Text Helper App" : "語音轉文字小幫手應用程式",
     "A smart picker provider that utilises the Speech to Text OCP API" : "使用語音轉文字 OCP API 的智慧選擇器提供者",
+    "⚠️ This app is now deprecated. The feature it provides is now included in the [Assistant app](https://apps.nextcloud.com/apps/assistant).\n\nThis app implements a smart picker provider that utilises the Speech to Text OCP API.\nIt enables the user to generate transcriptions of recorded audio or an audio file provided.\n\nNOTE: This integration requires a separate integration to be installed that exposes a SpeechToText processing provider, like the Whisper Speech-To-Text App, for example." : "⚠️ 此應用程式現已棄用。其提供的功能現已包含在[小幫手應用程式](https://apps.nextcloud.com/apps/assistant)中。\n\n該應用程式實作了一個利用語音轉文字 OCP API 的智慧挑選程式提供者。\n其讓使用者可以產生錄製的音訊或提供的音訊檔案的轉錄。\n\n注意：此整合必須安裝一個單獨的整合來公開語音轉文字處理提供者，例如 Whisper Speech-To-Text 應用程式。",
     "Close Modal" : "關閉互動視窗",
     "Close" : "關閉",
     "Transcript" : "轉錄",
