@@ -7,6 +7,7 @@ OC.L10N.register(
     "Close" : "Zarrar",
     "Copy" : "Copiar",
     "Copied" : "Copióse",
+    "Copy to Clipboard" : "Copiar nel cartafuetu",
     "Record Audio" : "Grabar l'audiu",
     "Choose Audio File" : "Escoyer un ficheru d'audiu",
     "No audio file selected" : "Nun se seleicionó nengún audiu",
