@@ -1,6 +1,7 @@
 OC.L10N.register(
     "stt_helper",
     {
+    "Error in transcript access time update call" : "Fehler beim Zugriff auf die Zeitaktualisierung des Transkripts",
     "Transcript not found" : "Transkript nicht gefunden",
     "Some internal error occurred. Contact your sysadmin for more info." : "Ein ist ein interner Fehler aufgetreten. Kontaktiere die Systemadministration für weitere Informationen.",
     "No Speech-to-Text provider found, install one from the app store to use this feature." : "Kein Sprache-zu-Text-Anbieter gefunden. Installiere einen aus dem App Store, um diese Funktion zu nutzen.",
