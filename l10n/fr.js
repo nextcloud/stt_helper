@@ -1,11 +1,13 @@
 OC.L10N.register(
     "stt_helper",
     {
+    "Multiple transcripts found" : "Plusieurs transcriptions trouvées",
     "Transcript not found" : "Transcription non trouvée",
     "Some internal error occurred. Contact your sysadmin for more info." : "Une erreur interne est survenue. Contactez votre administrateur système pour en savoir plus.",
     "No Speech-to-Text provider found, install one from the app store to use this feature." : "Aucun fournisseur de reconnaissance vocale trouvé. Installez-en un depuis le magasin d'applications pour utiliser cette fonctionnalité.",
     "Audio file not found." : "Fichier audio introuvable.",
     "No permission to create recording file/directory, contact your sysadmin to resolve this issue." : "Aucune permission pour créer un fichier/répertoire d'enregistrement, contactez votre administrateur système pour résoudre ce problème.",
+    "View transcript" : "Voir la transcription",
     "Error: %1$s" : "Erreur : %1$s",
     "Speech to Text" : "Synthèse vocale",
     "Close" : "Fermer",
