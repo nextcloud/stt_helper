@@ -1,4 +1,5 @@
 { "translations": {
+    "Error in transcript access time update call" : "Erreur de transcription lors de l'appel de la mise à jour ",
     "Multiple transcripts found" : "Plusieurs transcriptions trouvées",
     "Transcript not found" : "Transcription non trouvée",
     "Some internal error occurred. Contact your sysadmin for more info." : "Une erreur interne est survenue. Contactez votre administrateur système pour en savoir plus.",
@@ -10,9 +11,13 @@
     "Transcript: %1$s" : "Transcription: %1$s",
     "View transcript" : "Voir la transcription",
     "Transcription has failed!" : "Transcription échoué!",
-    "Error: %1$s" : "Erreur : %1$s",
+    "Error: %1$s" : "Erreur: %1$s",
     "View error message" : "Voir le message d'erreur",
     "Speech to Text" : "Synthèse vocale",
+    "Speech to Text Helper App" : "App d'Aide Speech to Text",
+    "A smart picker provider that utilises the Speech to Text OCP API" : "Le sélecteurs intelligents fournis qui utilise l'API Speech to Text OCP",
+    "⚠️ This app is now deprecated. The feature it provides is now included in the [Assistant app](https://apps.nextcloud.com/apps/assistant).\n\nThis app implements a smart picker provider that utilises the Speech to Text OCP API.\nIt enables the user to generate transcriptions of recorded audio or an audio file provided.\n\nNOTE: This integration requires a separate integration to be installed that exposes a SpeechToText processing provider, like the Whisper Speech-To-Text App, for example." : "⚠️ Cette application est désormais obsolète. La fonctionnalité qu'il fournit est désormais incluse dans [l'application Assistant](https://apps.nextcloud.com/apps/assistant).\n\nCette application implémente un sélecteur intelligent fournis qui utilise l'API Speech to Text OCP.\nIl permet à l'utilisateur de générer des transcriptions d'audio enregistré ou d'un fichier audio fourni.\n\nREMARQUE: Cette intégration nécessite l'installation d'une intégration distincte qui expose un service de traitement SpeechToText, comme l'application Whisper Speech-To-Text, par exemple.",
+    "Close Modal" : "Fermer le modal",
     "Close" : "Fermer",
     "Transcript" : "Transcription",
     "Copy" : "Copier",
@@ -23,7 +28,11 @@
     "Record Audio" : "Enregistrement audio",
     "Choose Audio File" : "Choisissez un fichier audio",
     "No audio file selected" : "Aucun fichier audio sélectionné",
-    "Selected Audio File:" : "Fichier audio sélectionné :",
-    "Unknown API error" : "Erreur API inconnue"
+    "Selected Audio File:" : "Fichier audio sélectionné:",
+    "Schedule Transcription" : "Programmer la transcription",
+    "Successfully scheduled transcription" : "Transcription programmer avec succès",
+    "Failed to schedule transcription" : "Échec de la programmation de la transcription",
+    "Unknown API error" : "Erreur API inconnue",
+    "Error while loading results: {error}" : "Erreur lors du chargement des résultats: {error}"
 },"pluralForm" :"nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
 }
