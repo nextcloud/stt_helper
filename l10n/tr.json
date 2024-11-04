@@ -5,7 +5,7 @@
     "Some internal error occurred. Contact your sysadmin for more info." : "Bir iç sorun çıktı. Ayrıntılı bilgi almak için sistem yönecinizle görüşün.",
     "No Speech-to-Text provider found, install one from the app store to use this feature." : "Herhangi bir konuşmadan yazıya dönüştürme hizmeti bulunamadı. Bu özelliği kullanabilmek için uygulama mağazasından bir hizmet kurun.",
     "Audio file not found." : "Ses dosyası bulunamadı.",
-    "No permission to create recording file/directory, contact your sysadmin to resolve this issue." : "Kayıt dosyası ya da klasörünü oluşturma izni yok. Sorunu çözmesi için sistem yöneticinizle görüşün.",
+    "No permission to create recording file/directory, contact your sysadmin to resolve this issue." : "Kayıt dosyası ya da klasörünü oluşturma izni yok. Sorunu çözmesi için sistem yöneticiniz ile görüşün.",
     "Speech To Text App" : "Konuşmadan yazıya uygulaması",
     "Transcription has finished!" : "Dönüştürme tamamlandı!",
     "Transcript: %1$s" : "Dönüştürme: %1$s",
