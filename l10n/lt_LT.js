@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Close" : "Užverti",
     "Copy" : "Kopija",
+    "Copied" : "Nukopijuota",
     "Copy to Clipboard" : "Kopijuoti į iškarpinę",
     "Unknown API error" : "Nežinoma API klaida"
 },

@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Close" : "Stäng",
     "Copy" : "Kopiera",
+    "Copied" : "Kopierad",
     "Copy to Clipboard" : "Kopiera till urklipp",
     "Record Audio" : "Spela in ljud",
     "Choose Audio File" : "Välj ljudfil"
