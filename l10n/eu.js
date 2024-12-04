@@ -6,6 +6,8 @@ OC.L10N.register(
     "No Speech-to-Text provider found, install one from the app store to use this feature." : "Ez da ahotsetik testurako hornitzailerik aurkitu, instalatu bat aplikazio dendatik ezaugarri hau erabiltzeko.",
     "Audio file not found." : "Audio fitxategia ez da aurkitu.",
     "No permission to create recording file/directory, contact your sysadmin to resolve this issue." : "Ez dago baimenik grabazioen fitxategi/karpeta sortzeko, jarri harremanetan zure sistemaren administratzailearekin arazo hau konpontzeko..",
+    "Transcript: %1$s" : "Transkripzioa: %1$s",
+    "View transcript" : "Ikusi transkripzioa",
     "Close" : "Itxi",
     "Transcript" : "Trab",
     "Copy" : "Kopiatu",
