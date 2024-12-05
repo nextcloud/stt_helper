@@ -8,6 +8,8 @@ OC.L10N.register(
     "No permission to create recording file/directory, contact your sysadmin to resolve this issue." : "Ez dago baimenik grabazioen fitxategi/karpeta sortzeko, jarri harremanetan zure sistemaren administratzailearekin arazo hau konpontzeko..",
     "Transcript: %1$s" : "Transkripzioa: %1$s",
     "View transcript" : "Ikusi transkripzioa",
+    "Error: %1$s" : "Errorea: %1$s",
+    "Close Modal" : "Itxi modala",
     "Close" : "Itxi",
     "Transcript" : "Trab",
     "Copy" : "Kopiatu",
