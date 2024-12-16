@@ -8,10 +8,10 @@
     "No permission to create recording file/directory, contact your sysadmin to resolve this issue." : "خاتىرىلەش ھۆججىتى / مۇندەرىجىسى قۇرۇشقا ئىجازەت يوق ، sysadmin بىلەن ئالاقىلىشىپ بۇ مەسىلىنى ھەل قىلىڭ.",
     "Speech To Text App" : "تېكىست دېتالىغا سۆزلەش",
     "Transcription has finished!" : "ترانسكرىپسىيە تاماملاندى!",
-    "Transcript: %1$s" : "ترانسكرىپسىيە:% 1 $ s",
+    "Transcript: %1$s" : "ترانسكرىپسىيە:%1 $ s",
     "View transcript" : "خاتىرىنى كۆرۈش",
     "Transcription has failed!" : "ترانسكرىپسىيە مەغلۇپ بولدى!",
-    "Error: %1$s" : "خاتالىق:% 1 $ s",
+    "Error: %1$s" : "خاتالىق:%1 $ s",
     "View error message" : "خاتالىق ئۇچۇرىنى كۆرۈڭ",
     "Speech to Text" : "تېكىستكە سۆزلەش",
     "Speech to Text Helper App" : "تېكىست ياردەمچى دېتالىغا سۆزلەش",
@@ -33,6 +33,6 @@
     "Successfully scheduled transcription" : "مۇۋەپپەقىيەتلىك پىلانلانغان ترانسكرىپسىيە",
     "Failed to schedule transcription" : "ترانسكرىپسىيەنى ئورۇنلاشتۇرۇش مەغلۇپ بولدى",
     "Unknown API error" : "نامەلۇم API خاتالىقى",
-    "Error while loading results: {error}" : "نەتىجىنى يۈكلەۋاتقاندا خاتالىق: {خاتالىق}"
+    "Error while loading results: {error}" : "نەتىجىنى يۈكلەۋاتقاندا خاتالىق: {error}"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
