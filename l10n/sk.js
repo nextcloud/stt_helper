@@ -2,6 +2,7 @@ OC.L10N.register(
     "stt_helper",
     {
     "Audio file not found." : "Zvukový súbor nebol nájdený.",
+    "Error: %1$s" : "Chyba: %1$s",
     "Close" : "Zatvoriť",
     "Copy" : "Kopírovať",
     "Record Audio" : "Nahrať Zvuk",
