@@ -5,6 +5,7 @@ OC.L10N.register(
     "Error: %1$s" : "Chyba: %1$s",
     "Close" : "Zatvoriť",
     "Copy" : "Kopírovať",
+    "Copied" : "Skopírované",
     "Record Audio" : "Nahrať Zvuk",
     "Choose Audio File" : "Vybrať súbor so zvukom",
     "No audio file selected" : "Nebol vybraný žiadny súbor so zvukom",
