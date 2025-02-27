@@ -8,8 +8,8 @@ OC.L10N.register(
     "Copy" : "Copiar",
     "Copied" : "Copióse",
     "Copy to Clipboard" : "Copiar nel cartafuetu",
-    "Record Audio" : "Grabar l'audiu",
     "Choose Audio File" : "Escoyer un ficheru d'audiu",
+    "Record Audio" : "Grabar l'audiu",
     "No audio file selected" : "Nun se seleicionó nengún audiu",
     "Schedule Transcription" : "Planificar la trescipción"
 },

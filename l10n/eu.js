@@ -15,13 +15,13 @@ OC.L10N.register(
     "Copy" : "Kopiatu",
     "Copied" : "Kopiatuta",
     "Copy to Clipboard" : "Kopiatu arbelera",
-    "Record Audio" : "Grabatu audioa",
     "Choose Audio File" : "Aukeratu audio fitxategia",
-    "No audio file selected" : "Ez da audio fitxategirik hautatu",
-    "Selected Audio File:" : "Hautatutako audio fitxategia:",
-    "Schedule Transcription" : "Programatu transkripzioa",
     "Successfully scheduled transcription" : "Transkripzioa ondo programatu da",
     "Failed to schedule transcription" : "Transkripzioa programatzeak huts egin du",
-    "Unknown API error" : "API errore ezezaguna"
+    "Unknown API error" : "API errore ezezaguna",
+    "Record Audio" : "Grabatu audioa",
+    "No audio file selected" : "Ez da audio fitxategirik hautatu",
+    "Selected Audio File:" : "Hautatutako audio fitxategia:",
+    "Schedule Transcription" : "Programatu transkripzioa"
 },
 "nplurals=2; plural=(n != 1);");

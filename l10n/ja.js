@@ -9,13 +9,13 @@ OC.L10N.register(
     "Close" : "閉じる",
     "Copy" : "コピー",
     "Copied" : "コピー",
-    "Record Audio" : "音声録音",
     "Choose Audio File" : "音声ファイルを選択",
-    "No audio file selected" : "選択済み音声ファイルがありません",
-    "Selected Audio File:" : "選択済み音声ファイル：",
-    "Schedule Transcription" : "文字起こしのスケジュールを設定する",
     "Successfully scheduled transcription" : "スケジュールされた文字起こしが正常に完了しました",
     "Failed to schedule transcription" : "予定トランスクリプションが失敗しました",
-    "Unknown API error" : "不明なAPIのエラー"
+    "Unknown API error" : "不明なAPIのエラー",
+    "Record Audio" : "音声録音",
+    "No audio file selected" : "選択済み音声ファイルがありません",
+    "Selected Audio File:" : "選択済み音声ファイル：",
+    "Schedule Transcription" : "文字起こしのスケジュールを設定する"
 },
 "nplurals=1; plural=0;");

@@ -9,13 +9,13 @@ OC.L10N.register(
     "Close" : "关闭",
     "Copy" : "复制",
     "Copy to Clipboard" : "复制到剪贴板",
-    "Record Audio" : "录制音频",
     "Choose Audio File" : "选择音频文件",
-    "No audio file selected" : "未选择音频文件",
-    "Selected Audio File:" : "已选的音频文件",
-    "Schedule Transcription" : "安排转写",
     "Successfully scheduled transcription" : "成功安排转写",
     "Failed to schedule transcription" : "安排转写失败",
-    "Unknown API error" : "未知API错误"
+    "Unknown API error" : "未知API错误",
+    "Record Audio" : "录制音频",
+    "No audio file selected" : "未选择音频文件",
+    "Selected Audio File:" : "已选的音频文件",
+    "Schedule Transcription" : "安排转写"
 },
 "nplurals=1; plural=0;");

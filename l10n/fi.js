@@ -5,9 +5,9 @@ OC.L10N.register(
     "Speech to Text" : "Puheesta tekstiksi",
     "Close" : "Sulje",
     "Copy" : "Kopioi",
-    "Record Audio" : "Tallenna ääntä",
     "Choose Audio File" : "Valitse äänitiedosto",
-    "Selected Audio File:" : "Valitse äänitiedosto:",
-    "Unknown API error" : "Tuntematon API-virhe"
+    "Unknown API error" : "Tuntematon API-virhe",
+    "Record Audio" : "Tallenna ääntä",
+    "Selected Audio File:" : "Valitse äänitiedosto:"
 },
 "nplurals=2; plural=(n != 1);");

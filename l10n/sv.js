@@ -5,7 +5,7 @@ OC.L10N.register(
     "Copy" : "Kopiera",
     "Copied" : "Kopierad",
     "Copy to Clipboard" : "Kopiera till urklipp",
-    "Record Audio" : "Spela in ljud",
-    "Choose Audio File" : "Välj ljudfil"
+    "Choose Audio File" : "Välj ljudfil",
+    "Record Audio" : "Spela in ljud"
 },
 "nplurals=2; plural=(n != 1);");

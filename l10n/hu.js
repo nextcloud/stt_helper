@@ -8,9 +8,9 @@ OC.L10N.register(
     "Close" : "Bezárás",
     "Copy" : "Másolás",
     "Copy to Clipboard" : "Másolás a vágólapra",
-    "Record Audio" : "Audio felvétel",
     "Choose Audio File" : "Válasszon audio fájlt",
-    "Selected Audio File:" : "Kiválasztott audio fájl:",
-    "Unknown API error" : "Ismeretlen API hiba"
+    "Unknown API error" : "Ismeretlen API hiba",
+    "Record Audio" : "Audio felvétel",
+    "Selected Audio File:" : "Kiválasztott audio fájl:"
 },
 "nplurals=2; plural=(n != 1);");
