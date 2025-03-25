@@ -1,6 +1,7 @@
 { "translations": {
     "Close" : "Sulge",
     "Copy" : "Kopeeri",
+    "Copied" : "Kopeeritud",
     "Copy to Clipboard" : "Kopeeri lõikelauale"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
