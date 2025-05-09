@@ -1,9 +1,22 @@
 OC.L10N.register(
     "stt_helper",
     {
+    "Transcript not found" : "Üleskirjutust ei leidu",
+    "Some internal error occurred. Contact your sysadmin for more info." : "Tekkis mingit sori sisemine viga. Lisateavet saad oma serveri peakasutajalt.",
+    "No Speech-to-Text provider found, install one from the app store to use this feature." : "Ühtegi kõnesünteesimootorit ei leidu. Selle funktsionaalsuse kasutamiseks paigalda rakendustepoest mõni.",
+    "Audio file not found." : "Helifaili ei leidu.",
+    "No permission to create recording file/directory, contact your sysadmin to resolve this issue." : "Pole õigusi salvestatava faili loomiseks või valitud kausta kasutamiseks. Palun küsi serveri peakasutajalt abi vea lahendamiseks.",
     "Close" : "Sulge",
     "Copy" : "Kopeeri",
     "Copied" : "Kopeeritud",
-    "Copy to Clipboard" : "Kopeeri lõikelauale"
+    "Copy to Clipboard" : "Kopeeri lõikelauale",
+    "Choose Audio File" : "Vali helifail",
+    "Successfully scheduled transcription" : "Üleskirjutamise ajastamine õnnestus",
+    "Failed to schedule transcription" : "Üleskirjutamise ajastamine ei õnnestunud",
+    "Unknown API error" : "Tundmatu API viga",
+    "Record Audio" : "Salvesta heli",
+    "No audio file selected" : "Helisisend on valimata",
+    "Selected Audio File:" : "Valitud helifail:",
+    "Schedule Transcription" : "Ajasta üleskirjutamine"
 },
 "nplurals=2; plural=(n != 1);");
