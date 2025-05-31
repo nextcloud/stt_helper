@@ -6,6 +6,7 @@ OC.L10N.register(
     "No Speech-to-Text provider found, install one from the app store to use this feature." : "Ühtegi kõnesünteesimootorit ei leidu. Selle funktsionaalsuse kasutamiseks paigalda rakendustepoest mõni.",
     "Audio file not found." : "Helifaili ei leidu.",
     "No permission to create recording file/directory, contact your sysadmin to resolve this issue." : "Pole õigusi salvestatava faili loomiseks või valitud kausta kasutamiseks. Palun küsi serveri peakasutajalt abi vea lahendamiseks.",
+    "Error: %1$s" : "Viga: %1$s",
     "Close" : "Sulge",
     "Copy" : "Kopeeri",
     "Copied" : "Kopeeritud",
