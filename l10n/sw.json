@@ -1,5 +1,6 @@
 { "translations": {
     "Close" : "Funga",
-    "Copy" : "Nakili"
+    "Copy" : "Nakili",
+    "Copied" : "Iliyonakiliwa"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
