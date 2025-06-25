@@ -1,6 +1,7 @@
 OC.L10N.register(
     "stt_helper",
     {
+    "Error: %1$s" : "Error: %1$s",
     "Close" : "Fechar",
     "Copy" : "copiar"
 },
