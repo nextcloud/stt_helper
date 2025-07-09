@@ -1,4 +1,5 @@
 { "translations": {
+    "Error: %1$s" : "Hitilafu: %1$s",
     "Close" : "Funga",
     "Copy" : "Nakili",
     "Copied" : "Iliyonakiliwa"
