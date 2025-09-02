@@ -1,6 +1,7 @@
 { "translations": {
     "No Speech-to-Text provider found, install one from the app store to use this feature." : "Поставщик преобразования речи в текст не найден. Чтобы использовать эту функцию, установите его из магазина приложений.",
     "Audio file not found." : "Аудиофайл не найден.",
+    "No permission to create recording file/directory, contact your sysadmin to resolve this issue." : "Нет разрешения на создание файла/каталога записи, обратитесь к системному администратору для решения этой проблемы.",
     "Speech to Text" : "Речь в текст",
     "Speech to Text Helper App" : "Приложение «Речь в текст»",
     "A smart picker provider that utilises the Speech to Text OCP API" : "Поставщик умного средства выбора, использующий Speech to Text OCP API",
