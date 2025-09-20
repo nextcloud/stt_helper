@@ -6,6 +6,7 @@ OC.L10N.register(
     "No Speech-to-Text provider found, install one from the app store to use this feature." : "Speech-to-Text プロバイダーが見つかりません。この機能を使用するには、アプリ ストアからプロバイダーをインストールしてください。",
     "Audio file not found." : "音声ファイルが見つかりません。",
     "No permission to create recording file/directory, contact your sysadmin to resolve this issue." : "ファイル/ディレクトリのレコーディング作成する権限がありません。あなたのsysadminに連絡してください",
+    "Speech to Text" : "音声テキスト変換",
     "Close" : "閉じる",
     "Copy" : "コピー",
     "Copied" : "コピー",
